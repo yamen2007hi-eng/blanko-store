@@ -1088,7 +1088,7 @@
     document.getElementById('yearNow').textContent = new Date().getFullYear();
 
     const ADMIN_PIN = '1992657';
-    const STORAGE_KEY = 'blanko_catalog_v4';
+    const STORAGE_KEY = 'blanko_catalog_v5';
 
     // الأقسام الكاملة متضمنة قسم الأحذية
     const CATEGORIES = [
@@ -1105,52 +1105,40 @@
       'عروض خاصة'
     ];
 
-    // قاموس شامل وكامل لجميع الألوان ومشتقاتها بالعربية والإنجليزية
     const COLOR_MAP = {
-      // الأسود ومشتقاته
       'أسود': '#000000', 'اسود': '#000000', 'black': '#000000', 'فحمي': '#1E1E1E', 'شاركوول': '#262626', 'charcoal': '#262626',
-      // الأبيض والبيج والسكري
       'أبيض': '#FFFFFF', 'ابيض': '#FFFFFF', 'white': '#FFFFFF',
       'أوف وايت': '#F7F7F2', 'اوف وايت': '#F7F7F2', 'offwhite': '#F7F7F2', 'off white': '#F7F7F2',
       'سكري': '#FDFBF7', 'عاجي': '#FFFFF0', 'ivory': '#FFFFF0',
       'بيج': '#D9C8B4', 'beige': '#D9C8B4', 'كريمي': '#FFFDD0', 'cream': '#FFFDD0',
       'رملي': '#C2B280', 'sand': '#C2B280',
-      // الرمادي
       'رمادي': '#808080', 'رصاصي': '#808080', 'gray': '#808080', 'grey': '#808080',
       'رمادي فاتح': '#D3D3D3', 'lightgray': '#D3D3D3', 'رمادي داكن': '#4F4F4F', 'darkgray': '#4F4F4F',
       'فضي': '#C0C0C0', 'silver': '#C0C0C0',
-      // الأزرق والكحلي
       'كحلي': '#101D36', 'كحيلي': '#101D36', 'ازرق داكن': '#101D36', 'أزرق داكن': '#101D36', 'navy': '#101D36', 'نيفي': '#101D36',
       'أزرق': '#1E40AF', 'ازرق': '#1E40AF', 'blue': '#1E40AF',
       'سماوي': '#38BDF8', 'لبني': '#93C5FD', 'أزرق فاتح': '#60A5FA', 'ازرق فاتح': '#60A5FA', 'skyblue': '#38BDF8', 'تيفاني': '#0ABAB5', 'tiffany': '#0ABAB5',
       'نيلي': '#312E81', 'indigo': '#312E81', 'رويال': '#1D4ED8', 'royal': '#1D4ED8',
-      // الأخضر والزيتي
       'أخضر': '#15803D', 'اخضر': '#15803D', 'green': '#15803D',
       'زيتي': '#3A4B28', 'زتوني': '#3A4B28', 'زيتوني': '#3A4B28', 'olive': '#3A4B28', 'عسكري': '#4B5320',
       'فستقي': '#93C572', 'pistachio': '#93C572', 'نعناعي': '#6EE7B7', 'mint': '#6EE7B7',
       'أخضر داكن': '#064E3B', 'اخضر داكن': '#064E3B', 'darkgreen': '#064E3B',
-      // الأصفر والبرتقالي
       'أصفر': '#FFE500', 'اصفر': '#FFE500', 'yellow': '#FFE500',
       'خردلي': '#CA8A04', 'موطارد': '#CA8A04', 'mustard': '#CA8A04',
       'ذهبي': '#D4AF37', 'gold': '#D4AF37',
       'برتقالي': '#F97316', 'orange': '#F97316', 'مشمشي': '#FB923C', 'خوخي': '#FDBA74', 'peach': '#FDBA74',
-      // الأحمر والوردي
       'أحمر': '#DC2626', 'احمر': '#DC2626', 'red': '#DC2626',
       'عنابي': '#7F1D1D', 'دم غزال': '#6B1111', 'دم الغزال': '#6B1111', 'ماروني': '#800000', 'maroon': '#800000', 'burgundy': '#800020', 'برغندي': '#800020',
       'وردي': '#EC4899', 'بينك': '#EC4899', 'pink': '#EC4899', 'زهري': '#F472B6',
       'فوشي': '#C026D3', 'fuchsia': '#C026D3', 'ماجنتا': '#D946EF',
-      // البني والترابي
       'بني': '#5C3826', 'brown': '#5C3826', 'بني داكن': '#3B2317', 'darkbrown': '#3B2317',
       'جملي': '#C19A6B', 'camel': '#C19A6B', 'كاكي': '#8B7355', 'خاكي': '#8B7355', 'khaki': '#8B7355',
       'تان': '#D2B48C', 'tan': '#D2B48C', 'موكا': '#8A6E58', 'طوبي': '#B24C3D', 'brick': '#B24C3D',
-      // البنفسجي
       'بنفسجي': '#7C3AED', 'purple': '#7C3AED', 'موف': '#9333EA', 'mauve': '#9333EA',
       'أرجواني': '#6D28D9', 'ارجواني': '#6D28D9', 'لافندر': '#C4B5FD', 'lavender': '#C4B5FD',
-      // فسفوري ونيون
       'فسفوري': '#CCFF00', 'نيون': '#FFE500', 'neon': '#FFE500'
     };
 
-    // القطع الافتراضية متضمنة حذاء سنيكرز متطابق مع الأحجام
     const INITIAL_PRODUCTS = [
       {
         id: 101,
@@ -1242,32 +1230,84 @@
     let currentCategory = 'الكل';
     let isAdminUnlocked = sessionStorage.getItem('blanko_unlocked') === 'true';
 
+    function updateSyncStatus(text, color) {
+      const el = document.getElementById('syncIndicator');
+      if (el) {
+        el.textContent = text;
+        el.style.color = color || 'var(--yellow-primary)';
+      }
+    }
+
     async function initStore() {
+      // 1. تحميل سريع من الذاكرة المحلية لتفادي شاشة فارغة
       const cached = localStorage.getItem(STORAGE_KEY);
       if (cached) {
         try { products = JSON.parse(cached); } catch (_) { products = [...INITIAL_PRODUCTS]; }
       } else {
         products = [...INITIAL_PRODUCTS];
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
       }
 
       renderCategories();
       renderStore();
 
+      // 2. المزامنة المباشرة مع قاعدة البيانات السحابية Neon
       try {
-        const res = await fetch('/api/products');
+        updateSyncStatus('⟳ جاري الاتصال بالسحابة...', '#38BDF8');
+        const res = await fetch('/api/products?t=' + Date.now());
         if (res.ok) {
           const remoteProducts = await res.json();
-          if (Array.isArray(remoteProducts) && remoteProducts.length > 0) {
-            products = remoteProducts;
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
-            renderStore();
-            if (document.getElementById('adminModal').classList.contains('open')) {
-              renderAdminItems();
+          if (Array.isArray(remoteProducts)) {
+            if (remoteProducts.length > 0) {
+              // قاعدة البيانات تحتوي منتجات: اعتمدها فوراً
+              products = remoteProducts;
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+              updateSyncStatus('● متصل ومتزامن مع Neon ✓', '#25D366');
+            } else {
+              // قاعدة البيانات فارغة تماماً: نرفع القطع الافتراضية إليها تلقائياً
+              updateSyncStatus('⟳ جاري تهيئة قاعدة البيانات...', '#FACC15');
+              seedDatabase();
             }
           }
+          renderStore();
+          if (document.getElementById('adminModal').classList.contains('open')) {
+            renderAdminItems();
+          }
+        } else {
+          updateSyncStatus('⚠ تعذر جلب البيانات من السحابة', '#FF6961');
         }
-      } catch (_) {}
+      } catch (err) {
+        console.error('Fetch error:', err);
+        updateSyncStatus('⚠ وضع عدم الاتصال (محلي فقط)', '#FF6961');
+      }
+    }
+
+    // رفع المنتجات الافتراضية لقاعدة بيانات Neon عند أول تشغيل
+    async function seedDatabase() {
+      try {
+        for (const item of INITIAL_PRODUCTS) {
+          await fetch('/api/products', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'x-admin-pin': ADMIN_PIN
+            },
+            body: JSON.stringify({ ...item, admin_pin: ADMIN_PIN, pin: ADMIN_PIN })
+          });
+        }
+        // إعادة الجلب بعد التهيئة
+        const res = await fetch('/api/products?t=' + Date.now());
+        if (res.ok) {
+          const seeded = await res.json();
+          if (Array.isArray(seeded) && seeded.length > 0) {
+            products = seeded;
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+            renderStore();
+            updateSyncStatus('● تم حفظ الكتالوج في Neon بنجاح ✓', '#25D366');
+          }
+        }
+      } catch (e) {
+        console.error('Seed error:', e);
+      }
     }
 
     function saveLocalAndRefresh() {
@@ -1304,7 +1344,6 @@
       }
     }
 
-    // بناء الدوائر اللونية مع فحص القاموس أو أكواد الـ HEX مباشرة
     function buildColorDots(colorsStr) {
       if (!colorsStr) return '';
       const list = String(colorsStr).split(/[,،-]/).map(s => s.trim()).filter(Boolean);
@@ -1314,7 +1353,6 @@
         const key = name.toLowerCase();
         let cssColor = COLOR_MAP[key];
 
-        // في حال تم إدخال كود لون مباشر مثل #000000 أو rgb
         if (!cssColor) {
           if (name.startsWith('#') || name.startsWith('rgb')) {
             cssColor = name;
@@ -1463,6 +1501,10 @@
     async function handleSaveProduct(e) {
       e.preventDefault();
       const editId = document.getElementById('editId').value;
+      const submitBtn = document.getElementById('submitProductBtn');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'جاري الحفظ في السحابة...';
+      submitBtn.disabled = true;
 
       const payload = {
         id: editId ? Number(editId) : Date.now(),
@@ -1476,33 +1518,46 @@
         old_price: document.getElementById('pOldPrice').value
           ? Number(document.getElementById('pOldPrice').value)
           : null,
-        is_sold_out: document.getElementById('pSoldOut').checked
+        is_sold_out: document.getElementById('pSoldOut').checked,
+        admin_pin: ADMIN_PIN,
+        pin: ADMIN_PIN
       };
-
-      if (editId) {
-        products = products.map(p => p.id === Number(editId) ? payload : p);
-      } else {
-        products.unshift(payload);
-      }
-
-      saveLocalAndRefresh();
-      resetProductForm();
-      showToast(editId ? 'تم تحديث بيانات القطعة ✓' : 'تمت إضافة القطعة للمتجر ✓');
 
       try {
         const res = await fetch('/api/products', {
           method: editId ? 'PUT' : 'POST',
-          headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
+          headers: {
+            'Content-Type': 'application/json',
+            'x-admin-pin': ADMIN_PIN
+          },
           body: JSON.stringify(payload)
         });
-        if (res.ok && !editId) {
-          const created = await res.json();
-          if (created && created.id) {
-            products = products.map(p => p.id === payload.id ? created : p);
-            saveLocalAndRefresh();
+
+        if (res.ok) {
+          const savedData = await res.json().catch(() => null);
+          const finalItem = (savedData && savedData.id) ? savedData : payload;
+
+          if (editId) {
+            products = products.map(p => p.id === Number(editId) ? finalItem : p);
+          } else {
+            products.unshift(finalItem);
           }
+
+          saveLocalAndRefresh();
+          resetProductForm();
+          showToast(editId ? 'تم تحديث القطعة وحفظها سحابياً ✓' : 'تم نشر القطعة وحفظها سحابياً ✓');
+          updateSyncStatus('● متصل ومتزامن مع Neon ✓', '#25D366');
+        } else {
+          const errText = await res.text().catch(() => '');
+          alert('تعذر الحفظ في قاعدة البيانات السحابية: ' + (errText || res.statusText));
         }
-      } catch (_) {}
+      } catch (err) {
+        console.error('Save error:', err);
+        alert('حدث خطأ أثناء الاتصال بالسيرفر، تأكد من اتصال الإنترنت.');
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
     }
 
     function loadProductToEdit(id) {
@@ -1523,7 +1578,7 @@
       toggleOldPriceInput();
       document.getElementById('formHeaderTitle').textContent = '✎ تعديل القطعة أو الحذاء';
       document.getElementById('cancelEditBtn').style.display = 'inline';
-      document.getElementById('submitProductBtn').textContent = 'حفظ التعديلات';
+      document.getElementById('submitProductBtn').textContent = 'حفظ التعديلات سحابياً';
     }
 
     function resetProductForm() {
@@ -1535,22 +1590,33 @@
       document.getElementById('submitProductBtn').textContent = 'حفظ ونشر في المتجر';
     }
 
-    function toggleSoldOutStatus(id) {
+    async function toggleSoldOutStatus(id) {
       const item = products.find(p => p.id === id);
       if (!item) return;
 
-      item.is_sold_out = !item.is_sold_out;
+      const newStatus = !item.is_sold_out;
+      item.is_sold_out = newStatus;
       saveLocalAndRefresh();
-      showToast(item.is_sold_out ? 'تم وضع علامة: نفدت الكمية' : 'تمت إعادة تفعيل توفر القطعة ✓');
+      showToast(newStatus ? 'تم وضع علامة: نفدت الكمية' : 'تمت إعادة توفير القطعة ✓');
 
-      fetch('/api/products', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
-        body: JSON.stringify({ action: 'toggle_sold_out', id: item.id, is_sold_out: item.is_sold_out })
-      }).catch(() => {});
+      try {
+        await fetch('/api/products', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
+          body: JSON.stringify({
+            action: 'toggle_sold_out',
+            id: item.id,
+            is_sold_out: newStatus,
+            admin_pin: ADMIN_PIN,
+            pin: ADMIN_PIN
+          })
+        });
+      } catch (err) {
+        console.error(err);
+      }
     }
 
-    function toggleSingleDiscount(id) {
+    async function toggleSingleDiscount(id) {
       const item = products.find(p => p.id === id);
       if (!item) return;
 
@@ -1569,43 +1635,64 @@
       saveLocalAndRefresh();
       showToast(nextState ? 'تم تفعيل التخفيض ⚡' : 'تم إخفاء التخفيض');
 
-      fetch('/api/products', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
-        body: JSON.stringify({
-          action: 'toggle_discount',
-          id: item.id,
-          price: item.price,
-          old_price: item.old_price,
-          is_discount: item.is_discount
-        })
-      }).catch(() => {});
+      try {
+        await fetch('/api/products', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
+          body: JSON.stringify({
+            action: 'toggle_discount',
+            id: item.id,
+            price: item.price,
+            old_price: item.old_price,
+            is_discount: item.is_discount,
+            admin_pin: ADMIN_PIN,
+            pin: ADMIN_PIN
+          })
+        });
+      } catch (err) {
+        console.error(err);
+      }
     }
 
-    function clearAllDiscounts() {
+    async function clearAllDiscounts() {
       if (!confirm('هل تريد إلغاء جميع التخفيضات من المتجر بالكامل؟')) return;
       products = products.map(p => ({ ...p, is_discount: false }));
       saveLocalAndRefresh();
       showToast('تم إلغاء جميع التخفيضات بنجاح ✓');
 
-      fetch('/api/products', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
-        body: JSON.stringify({ action: 'disable_all_discounts' })
-      }).catch(() => {});
+      try {
+        await fetch('/api/products', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
+          body: JSON.stringify({
+            action: 'disable_all_discounts',
+            admin_pin: ADMIN_PIN,
+            pin: ADMIN_PIN
+          })
+        });
+      } catch (err) {
+        console.error(err);
+      }
     }
 
-    function removeProduct(id) {
+    async function removeProduct(id) {
       if (!confirm('هل أنت متأكد من حذف هذه القطعة نهائياً؟')) return;
       products = products.filter(p => p.id !== id);
       saveLocalAndRefresh();
       showToast('تم حذف القطعة');
 
-      fetch(`/api/products?id=${id}`, {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
-        body: JSON.stringify({ id })
-      }).catch(() => {});
+      try {
+        await fetch(`/api/products?id=${id}&admin_pin=${ADMIN_PIN}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-admin-pin': ADMIN_PIN
+          },
+          body: JSON.stringify({ id, admin_pin: ADMIN_PIN, pin: ADMIN_PIN })
+        });
+      } catch (err) {
+        console.error(err);
+      }
     }
 
     function renderAdminItems() {
