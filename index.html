@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0A0A0A" />
+  <title>BLANKO | For Men's Clothing</title>
+
+  <style>
+    /* ==================== الهوية البصرية الفاخرة (Luxury Streetwear CSS) ==================== */
+    :root {
+      --bg-main: #0A0A0A;
+      --bg-elevated: #121212;
+      --bg-card: #151515;
+      --bg-glass: rgba(18, 18, 18, 0.90);
+      --yellow-primary: #FFE500;
+      --yellow-accent: #FACC15;
+      --yellow-glow: rgba(255, 229, 0, 0.18);
+      --text-white: #FAFAFA;
+      --text-muted: #A0A0A0;
+      --text-dim: #5E5E5E;
+      --border-subtle: #242424;
+      --border-hover: #3A3A3A;
+      --danger: #FF3B30;
+      --success: #25D366;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-pill: 9999px;
+      --shadow-card: 0 14px 34px rgba(0, 0, 0, 0.7);
+      --font-ar: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-serif: "Didot", "Bodoni MT", "Times New Roman", Georgia, serif;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      background-color: var(--bg-main);
+      color: var(--text-white);
+      font-family: var(--font-ar);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input, select {
+      font-family: inherit;
+      border: none;
+      outline: none;
+      background: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* ==================== الشريط العلوي والتواصل ==================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-top {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-side {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      height: 40px;
+      min-width: 40px;
+      padding: 0 10px;
+      border-radius: var(--radius-md);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: var(--text-white);
+      font-size: 13px;
+      font-weight: 700;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .icon-btn:hover, .icon-btn:active {
+      border-color: var(--yellow-primary);
+      color: var(--yellow-primary);
+      transform: translateY(-1px);
+    }
+
+    .icon-btn.whatsapp-btn {
+      border-color: rgba(37, 211, 102, 0.35);
+      background: rgba(37, 211, 102, 0.08);
+      color: #4AE584;
+    }
+
+    .icon-btn.maps-btn {
+      border-color: rgba(255, 229, 0, 0.3);
+      background: rgba(255, 229, 0, 0.06);
+      color: var(--yellow-primary);
+    }
+
+    .btn-label-hide-mobile {
+      display: none;
+    }
+
+    @media (min-width: 640px) {
+      .btn-label-hide-mobile {
+        display: inline;
+      }
+    }
+
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .brand-monogram {
+      width: 44px;
+      height: 44px;
+      background-color: var(--yellow-primary);
+      color: #000000;
+      font-family: var(--font-serif);
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px var(--yellow-glow);
+      transition: var(--transition);
+    }
+
+    .brand-logo:active .brand-monogram {
+      transform: scale(0.95);
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--text-white);
+      margin-top: 4px;
+      line-height: 1;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-serif);
+      font-size: 8px;
+      letter-spacing: 1.8px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      font-weight: 600;
+    }
+
+    .search-drawer {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 16px 12px;
+      display: none;
+    }
+
+    .search-drawer.open {
+      display: block;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 11px 16px;
+      font-size: 14px;
+      color: var(--text-white);
+      transition: var(--transition);
+    }
+
+    .search-input:focus {
+      border-color: var(--yellow-primary);
+      box-shadow: 0 0 0 3px var(--yellow-glow);
+    }
+
+    .categories-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(14, 14, 14, 0.96);
+    }
+
+    .categories-scroll {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .categories-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-pill {
+      padding: 7px 15px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+      background: var(--bg-elevated);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .cat-pill:hover {
+      color: var(--text-white);
+      border-color: var(--border-hover);
+    }
+
+    .cat-pill.active {
+      background: var(--yellow-primary);
+      color: #000000;
+      border-color: var(--yellow-primary);
+      box-shadow: 0 4px 16px var(--yellow-glow);
+      transform: translateY(-1px);
+    }
+
+    /* ==================== شبكة المنتجات ==================== */
+    .store-container {
+      max-width: 1240px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px 14px 60px;
+      flex-grow: 1;
+    }
+
+    .section-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .heading-accent {
+      width: 5px;
+      height: 20px;
+      background: var(--yellow-primary);
+      border-radius: var(--radius-pill);
+      display: inline-block;
+    }
+
+    .items-counter {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    @media (min-width: 700px) {
+      .products-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+    }
+
+    @media (min-width: 1040px) {
+      .products-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 22px;
+      }
+    }
+
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      position: relative;
+      box-shadow: var(--shadow-card);
+    }
+
+    .product-card:hover {
+      border-color: rgba(255, 229, 0, 0.5);
+      transform: translateY(-4px);
+    }
+
+    .product-card.sold-out-card {
+      opacity: 0.78;
+    }
+
+    .card-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: #0F0F0F;
+      overflow: hidden;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .product-card:hover .card-img {
+      transform: scale(1.05);
+    }
+
+    .product-card.sold-out-card .card-img {
+      filter: grayscale(65%) contrast(95%);
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--yellow-primary);
+      color: #000000;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+      z-index: 2;
+    }
+
+    .soldout-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(2px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+
+    .soldout-pill {
+      background: rgba(255, 59, 48, 0.92);
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 900;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.5px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .category-chip {
+      position: absolute;
+      bottom: 9px;
+      left: 9px;
+      background: rgba(10, 10, 10, 0.82);
+      backdrop-filter: blur(6px);
+      color: #E0E0E0;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      z-index: 2;
+    }
+
+    .card-body {
+      padding: 12px 13px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+      gap: 9px;
+    }
+
+    .product-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text-white);
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .specs-box {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-top: 2px;
+    }
+
+    .specs-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .specs-label {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .color-dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.38);
+      display: inline-block;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      flex-shrink: 0;
+    }
+
+    .size-tag {
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--text-white);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-hover);
+      padding: 2px 6px;
+      border-radius: 5px;
+      line-height: 1.2;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding-top: 9px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      margin-top: auto;
+    }
+
+    .current-price {
+      font-size: 15.5px;
+      font-weight: 900;
+      color: var(--yellow-primary);
+    }
+
+    .currency {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .old-price {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-decoration: line-through;
+    }
+
+    .empty-box {
+      grid-column: 1 / -1;
+      background: var(--bg-elevated);
+      border: 1px dashed var(--border-hover);
+      border-radius: var(--radius-lg);
+      padding: 44px 20px;
+      text-align: center;
+    }
+
+    .empty-box h3 {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .empty-box p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ==================== النوافذ المنبثقة ==================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.84);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .pin-dialog {
+      width: 100%;
+      max-width: 360px;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+    }
+
+    .dialog-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .dialog-title {
+      font-size: 16px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot-yellow {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--yellow-primary);
+      box-shadow: 0 0 10px var(--yellow-primary);
+    }
+
+    .close-btn {
+      font-size: 22px;
+      color: var(--text-muted);
+      line-height: 1;
+      padding: 4px;
+    }
+
+    .pin-field {
+      width: 100%;
+      background: #080808;
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 6px;
+      color: var(--yellow-primary);
+      margin: 14px 0;
+    }
+
+    .pin-field:focus {
+      border-color: var(--yellow-primary);
+    }
+
+    .btn-primary {
+      width: 100%;
+      background: var(--yellow-primary);
+      color: #000000;
+      font-weight: 900;
+      font-size: 14px;
+      padding: 13px 18px;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      background: var(--yellow-accent);
+    }
+
+    /* لوحة الإدارة */
+    .admin-dialog {
+      width: 100%;
+      max-width: 980px;
+      max-height: 92vh;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95);
+    }
+
+    .admin-top {
+      padding: 14px 18px;
+      background: #0D0D0D;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .admin-actions-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-danger-outline {
+      background: rgba(255, 59, 48, 0.12);
+      color: #FF6961;
+      border: 1px solid rgba(255, 59, 48, 0.35);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+    }
+
+    .btn-subtle {
+      background: var(--bg-elevated);
+      color: var(--text-white);
+      border: 1px solid var(--border-subtle);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+    }
+
+    .admin-body {
+      padding: 16px;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    @media (min-width: 840px) {
+      .admin-body {
+        grid-template-columns: 370px 1fr;
+      }
+    }
+
+    .admin-form-box {
+      background: #0E0E0E;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 15px;
+      height: fit-content;
+    }
+
+    .form-group {
+      margin-bottom: 11px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .form-input, .form-select {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 9px 11px;
+      font-size: 13px;
+      color: var(--text-white);
+    }
+
+    .form-input:focus, .form-select:focus {
+      border-color: var(--yellow-primary);
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .toggle-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      margin-bottom: 10px;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .checkbox-row input {
+      width: 17px;
+      height: 17px;
+      accent-color: var(--yellow-primary);
+    }
+
+    .admin-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .admin-item {
+      background: #0E0E0E;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .admin-item-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .admin-thumb {
+      width: 46px;
+      height: 58px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      border: 1px solid var(--border-subtle);
+      flex-shrink: 0;
+    }
+
+    .admin-item-title {
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .admin-item-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 7px;
+      font-size: 11px;
+      margin-top: 3px;
+      color: var(--text-muted);
+    }
+
+    .admin-item-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .chip-btn {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 6px 9px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+    }
+
+    .chip-btn.active-discount {
+      background: var(--yellow-primary);
+      color: #000000;
+      border-color: var(--yellow-primary);
+    }
+
+    .chip-btn.active-soldout {
+      background: rgba(255, 59, 48, 0.2);
+      color: #FF6961;
+      border-color: rgba(255, 59, 48, 0.45);
+    }
+
+    .chip-btn.delete {
+      color: #FF6961;
+      border-color: rgba(255, 59, 48, 0.3);
+    }
+
+    .toast-msg {
+      position: fixed;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--yellow-primary);
+      color: #000000;
+      font-size: 12px;
+      font-weight: 900;
+      padding: 11px 22px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    .toast-msg.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border-subtle);
+      background: #070707;
+      padding: 28px 16px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-top: auto;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 12px 0;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== الشريط العلوي ==================== -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="header-side">
+        <button class="icon-btn" onclick="toggleSearch()" title="بحث في المتجر">⌕</button>
+        <a class="icon-btn whatsapp-btn" href="https://wa.me/218920081008" target="_blank" rel="noopener noreferrer" title="واتساب: 0920081008">
+          <span>💬</span>
+          <span class="btn-label-hide-mobile">0920081008</span>
+        </a>
+        <a class="icon-btn maps-btn" href="https://maps.app.goo.gl/9WLCsBo3bTdbHCvU7" target="_blank" rel="noopener noreferrer" title="موقع المحل على الخريطة">
+          <span>📍</span>
+          <span class="btn-label-hide-mobile">موقع المحل</span>
+        </a>
+      </div>
+
+      <div class="brand-logo" onclick="selectCategory('الكل')">
+        <div class="brand-monogram">BL</div>
+        <span class="brand-title">BLANKO</span>
+        <span class="brand-subtitle">FOR MEN'S CLOTHING</span>
+      </div>
+
+      <div class="header-side">
+        <button class="icon-btn" onclick="openAdminTrigger()" title="لوحة الإدارة">🔒</button>
+      </div>
+    </div>
+
+    <div id="searchDrawer" class="search-drawer">
+      <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="ابحث عن قطعة، حذاء، لون، أو مقاس..."
+        oninput="renderStore()"
+      />
+    </div>
+
+    <!-- شريط الأقسام المحدث شاملاً الأحذية -->
+    <nav class="categories-bar">
+      <div id="categoriesBar" class="categories-scroll"></div>
+    </nav>
+  </header>
+
+  <!-- ==================== الكتالوج الرئيسي ==================== -->
+  <main class="store-container">
+    <div class="section-bar">
+      <div class="section-heading">
+        <span class="heading-accent"></span>
+        <h1 id="categoryHeading">جميع القطع</h1>
+      </div>
+      <span id="itemsCounter" class="items-counter">0 قطع</span>
+    </div>
+
+    <div id="productsGrid" class="products-grid"></div>
+  </main>
+
+  <!-- ==================== نافذة رمز الـ PIN (1992657) ==================== -->
+  <div id="pinModal" class="modal-backdrop">
+    <div class="pin-dialog">
+      <div class="dialog-header">
+        <div class="dialog-title">
+          <span class="dot-yellow"></span>
+          <span>بوابة إدارة BLANKO</span>
+        </div>
+        <button class="close-btn" onclick="closePinModal()">&times;</button>
+      </div>
+      <p style="font-size: 12px; color: var(--text-muted);">
+        أدخل رمز الـ PIN السري الخاص بالإدارة لفتح لوحة التحكم وتحديث الكتالوج.
+      </p>
+      <form onsubmit="handlePinSubmit(event)">
+        <input
+          type="password"
+          id="pinField"
+          class="pin-field"
+          inputmode="numeric"
+          placeholder="•••••••"
+          required
+        />
+        <button type="submit" class="btn-primary">فتح لوحة التحكم</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== لوحة التحكم الإدارية ==================== -->
+  <div id="adminModal" class="modal-backdrop">
+    <div class="admin-dialog">
+      <div class="admin-top">
+        <div class="dialog-title">
+          <span class="dot-yellow"></span>
+          <span>لوحة تحكم BLANKO السحابية</span>
+        </div>
+        <div class="admin-actions-bar">
+          <button class="btn-danger-outline" onclick="clearAllDiscounts()">إلغاء جميع التخفيضات ✕</button>
+          <button class="btn-subtle" onclick="closeAdminModal()">إغلاق</button>
+        </div>
+      </div>
+
+      <div class="admin-body">
+        <div class="admin-form-box">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <h3 id="formHeaderTitle" style="font-size:14px; font-weight:800; color:var(--yellow-primary);">
+              + إضافة قطعة جديدة
+            </h3>
+            <button id="cancelEditBtn" onclick="resetProductForm()" style="display:none; font-size:11px; color:var(--text-muted); text-decoration:underline;">
+              إلغاء التعديل
+            </button>
+          </div>
+
+          <form id="productForm" onsubmit="handleSaveProduct(event)">
+            <input type="hidden" id="editId" value="" />
+
+            <div class="form-group">
+              <label class="form-label">اسم القطعة أو الحذاء *</label>
+              <input type="text" id="pName" class="form-input" required placeholder="مثال: حذاء سنيكرز ستريت وير جلدي" />
+            </div>
+
+            <div class="form-row-2 form-group">
+              <div>
+                <label class="form-label">السعر الحالي (د.ل) *</label>
+                <input type="number" step="0.01" id="pPrice" class="form-input" required placeholder="185" />
+              </div>
+              <div>
+                <label class="form-label">القسم *</label>
+                <select id="pCategory" class="form-select" required>
+                  <option value="هوديز">هوديز</option>
+                  <option value="قمصان">قمصان</option>
+                  <option value="تيشرتات">تيشرتات</option>
+                  <option value="سراويل وشورتات">سراويل وشورتات</option>
+                  <option value="بدلات">بدلات</option>
+                  <option value="سويتات">سويتات</option>
+                  <option value="أحذية">أحذية</option>
+                  <option value="عطور">عطور</option>
+                  <option value="إكسسوارات">إكسسوارات</option>
+                  <option value="عروض خاصة">عروض خاصة</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">رابط صورة القطعة (Direct URL) *</label>
+              <input type="url" id="pImage" class="form-input" dir="ltr" required placeholder="https://i.postimg.cc/..." />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">الألوان المتاحة (اكتب أي لون بالعربية أو الإنجليزية، افصل بينها بفاصلة)</label>
+              <input type="text" id="pColors" class="form-input" placeholder="مثال: أسود، أبيض، كحلي، بيج، رصاصي، زيتي" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">المقاسات المتاحة (ملابس: S إلى XXXL / أحذية: 38 إلى 45)</label>
+              <input type="text" id="pSizes" class="form-input" placeholder="مثال: 40, 41, 42, 43, 44 أو S, M, L, XL" />
+            </div>
+
+            <div class="toggle-box">
+              <label class="checkbox-row">
+                <span>تفعيل شارة التخفيض الصفراء</span>
+                <input type="checkbox" id="pDiscount" onchange="toggleOldPriceInput()" />
+              </label>
+              <div id="oldPriceGroup" style="display:none; margin-top:10px;">
+                <label class="form-label">السعر السابق (قبل التخفيض)</label>
+                <input type="number" step="0.01" id="pOldPrice" class="form-input" placeholder="240" />
+              </div>
+            </div>
+
+            <div class="toggle-box">
+              <label class="checkbox-row">
+                <span style="color:#FF6961;">القطعة نفدت كميتها (Sold Out)</span>
+                <input type="checkbox" id="pSoldOut" />
+              </label>
+            </div>
+
+            <button type="submit" id="submitProductBtn" class="btn-primary">
+              حفظ ونشر في المتجر
+            </button>
+          </form>
+        </div>
+
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <span style="font-size:13px; font-weight:800;">القطع المنشورة (<span id="adminCount">0</span>)</span>
+            <span id="syncIndicator" style="font-size:11px; color:var(--yellow-primary);">● متصل ومتزامن</span>
+          </div>
+          <div id="adminItemsList" class="admin-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast-msg"></div>
+
+  <!-- ==================== التذييل ==================== -->
+  <footer class="site-footer">
+    <div style="font-family:var(--font-serif); color:var(--text-white); letter-spacing:3px; font-weight:700; font-size:15px;">
+      BLANKO — FOR MEN'S CLOTHING
+    </div>
+    <div class="footer-links">
+      <a class="icon-btn whatsapp-btn" href="https://wa.me/218920081008" target="_blank" rel="noopener noreferrer">
+        💬 واتساب: 0920081008
+      </a>
+      <a class="icon-btn maps-btn" href="https://maps.app.goo.gl/9WLCsBo3bTdbHCvU7" target="_blank" rel="noopener noreferrer">
+        📍 موقعنا على خرائط جوجل
+      </a>
+    </div>
+    <div>جميع الحقوق محفوظة &copy; <span id="yearNow"></span></div>
+  </footer>
+
+  <!-- ==================== المنطق البرمجي ==================== -->
+  <script>
+    document.getElementById('yearNow').textContent = new Date().getFullYear();
+
+    const ADMIN_PIN = '1992657';
+    const STORAGE_KEY = 'blanko_catalog_v4';
+
+    // الأقسام الكاملة متضمنة قسم الأحذية
+    const CATEGORIES = [
+      'الكل',
+      'هوديز',
+      'قمصان',
+      'تيشرتات',
+      'سراويل وشورتات',
+      'بدلات',
+      'سويتات',
+      'أحذية',
+      'عطور',
+      'إكسسوارات',
+      'عروض خاصة'
+    ];
+
+    // قاموس شامل وكامل لجميع الألوان ومشتقاتها بالعربية والإنجليزية
+    const COLOR_MAP = {
+      // الأسود ومشتقاته
+      'أسود': '#000000', 'اسود': '#000000', 'black': '#000000', 'فحمي': '#1E1E1E', 'شاركوول': '#262626', 'charcoal': '#262626',
+      // الأبيض والبيج والسكري
+      'أبيض': '#FFFFFF', 'ابيض': '#FFFFFF', 'white': '#FFFFFF',
+      'أوف وايت': '#F7F7F2', 'اوف وايت': '#F7F7F2', 'offwhite': '#F7F7F2', 'off white': '#F7F7F2',
+      'سكري': '#FDFBF7', 'عاجي': '#FFFFF0', 'ivory': '#FFFFF0',
+      'بيج': '#D9C8B4', 'beige': '#D9C8B4', 'كريمي': '#FFFDD0', 'cream': '#FFFDD0',
+      'رملي': '#C2B280', 'sand': '#C2B280',
+      // الرمادي
+      'رمادي': '#808080', 'رصاصي': '#808080', 'gray': '#808080', 'grey': '#808080',
+      'رمادي فاتح': '#D3D3D3', 'lightgray': '#D3D3D3', 'رمادي داكن': '#4F4F4F', 'darkgray': '#4F4F4F',
+      'فضي': '#C0C0C0', 'silver': '#C0C0C0',
+      // الأزرق والكحلي
+      'كحلي': '#101D36', 'كحيلي': '#101D36', 'ازرق داكن': '#101D36', 'أزرق داكن': '#101D36', 'navy': '#101D36', 'نيفي': '#101D36',
+      'أزرق': '#1E40AF', 'ازرق': '#1E40AF', 'blue': '#1E40AF',
+      'سماوي': '#38BDF8', 'لبني': '#93C5FD', 'أزرق فاتح': '#60A5FA', 'ازرق فاتح': '#60A5FA', 'skyblue': '#38BDF8', 'تيفاني': '#0ABAB5', 'tiffany': '#0ABAB5',
+      'نيلي': '#312E81', 'indigo': '#312E81', 'رويال': '#1D4ED8', 'royal': '#1D4ED8',
+      // الأخضر والزيتي
+      'أخضر': '#15803D', 'اخضر': '#15803D', 'green': '#15803D',
+      'زيتي': '#3A4B28', 'زتوني': '#3A4B28', 'زيتوني': '#3A4B28', 'olive': '#3A4B28', 'عسكري': '#4B5320',
+      'فستقي': '#93C572', 'pistachio': '#93C572', 'نعناعي': '#6EE7B7', 'mint': '#6EE7B7',
+      'أخضر داكن': '#064E3B', 'اخضر داكن': '#064E3B', 'darkgreen': '#064E3B',
+      // الأصفر والبرتقالي
+      'أصفر': '#FFE500', 'اصفر': '#FFE500', 'yellow': '#FFE500',
+      'خردلي': '#CA8A04', 'موطارد': '#CA8A04', 'mustard': '#CA8A04',
+      'ذهبي': '#D4AF37', 'gold': '#D4AF37',
+      'برتقالي': '#F97316', 'orange': '#F97316', 'مشمشي': '#FB923C', 'خوخي': '#FDBA74', 'peach': '#FDBA74',
+      // الأحمر والوردي
+      'أحمر': '#DC2626', 'احمر': '#DC2626', 'red': '#DC2626',
+      'عنابي': '#7F1D1D', 'دم غزال': '#6B1111', 'دم الغزال': '#6B1111', 'ماروني': '#800000', 'maroon': '#800000', 'burgundy': '#800020', 'برغندي': '#800020',
+      'وردي': '#EC4899', 'بينك': '#EC4899', 'pink': '#EC4899', 'زهري': '#F472B6',
+      'فوشي': '#C026D3', 'fuchsia': '#C026D3', 'ماجنتا': '#D946EF',
+      // البني والترابي
+      'بني': '#5C3826', 'brown': '#5C3826', 'بني داكن': '#3B2317', 'darkbrown': '#3B2317',
+      'جملي': '#C19A6B', 'camel': '#C19A6B', 'كاكي': '#8B7355', 'خاكي': '#8B7355', 'khaki': '#8B7355',
+      'تان': '#D2B48C', 'tan': '#D2B48C', 'موكا': '#8A6E58', 'طوبي': '#B24C3D', 'brick': '#B24C3D',
+      // البنفسجي
+      'بنفسجي': '#7C3AED', 'purple': '#7C3AED', 'موف': '#9333EA', 'mauve': '#9333EA',
+      'أرجواني': '#6D28D9', 'ارجواني': '#6D28D9', 'لافندر': '#C4B5FD', 'lavender': '#C4B5FD',
+      // فسفوري ونيون
+      'فسفوري': '#CCFF00', 'نيون': '#FFE500', 'neon': '#FFE500'
+    };
+
+    // القطع الافتراضية متضمنة حذاء سنيكرز متطابق مع الأحجام
+    const INITIAL_PRODUCTS = [
+      {
+        id: 101,
+        name: 'هودي بلانكو أوفرسايز أسود مطفي — Heavyweight',
+        price: 165,
+        old_price: 220,
+        category: 'هوديز',
+        colors: 'أسود, رمادي, أبيض',
+        sizes: 'S, M, L, XL, XXL',
+        is_discount: true,
+        is_sold_out: false,
+        image_url: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85'
+      },
+      {
+        id: 102,
+        name: 'حذاء سنيكرز ستريت وير جلد كلاسيكي — Blanko Runner',
+        price: 240,
+        old_price: 310,
+        category: 'أحذية',
+        colors: 'أبيض, أسود, رمادي, بيج',
+        sizes: '40, 41, 42, 43, 44, 45',
+        is_discount: true,
+        is_sold_out: false,
+        image_url: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=85'
+      },
+      {
+        id: 103,
+        name: 'بدلة رسمية كلاسيكية بقصة إيطالية فاخرة',
+        price: 480,
+        old_price: 590,
+        category: 'بدلات',
+        colors: 'أسود, كحلي, رمادي',
+        sizes: '48, 50, 52, 54, 56',
+        is_discount: true,
+        is_sold_out: false,
+        image_url: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=900&q=85'
+      },
+      {
+        id: 104,
+        name: 'قميص أوكسفورد كاجوال بقصة مريحة',
+        price: 135,
+        old_price: null,
+        category: 'قمصان',
+        colors: 'أبيض, كحلي, بيج',
+        sizes: 'M, L, XL, XXL',
+        is_discount: false,
+        is_sold_out: false,
+        image_url: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=900&q=85'
+      },
+      {
+        id: 105,
+        name: 'تيشرت ستريت وير قطن فاخر — Blanko Edition',
+        price: 95,
+        old_price: 130,
+        category: 'تيشرتات',
+        colors: 'أسود, أبيض, أصفر',
+        sizes: 'S, M, L, XL, XXL, XXXL',
+        is_discount: true,
+        is_sold_out: false,
+        image_url: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=900&q=85'
+      },
+      {
+        id: 106,
+        name: 'سروال كارجو تكتيكي أسود بقصة عصرية',
+        price: 175,
+        old_price: null,
+        category: 'سراويل وشورتات',
+        colors: 'أسود, زيتي, بيج',
+        sizes: '30, 32, 34, 36, 38',
+        is_discount: false,
+        is_sold_out: false,
+        image_url: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=85'
+      },
+      {
+        id: 107,
+        name: 'عطر رجالي فاخر — Blanko Noir Oud 100ml',
+        price: 210,
+        old_price: 260,
+        category: 'عطور',
+        colors: 'أسود, ذهبي',
+        sizes: '100ml',
+        is_discount: true,
+        is_sold_out: true,
+        image_url: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=85'
+      }
+    ];
+
+    let products = [];
+    let currentCategory = 'الكل';
+    let isAdminUnlocked = sessionStorage.getItem('blanko_unlocked') === 'true';
+
+    async function initStore() {
+      const cached = localStorage.getItem(STORAGE_KEY);
+      if (cached) {
+        try { products = JSON.parse(cached); } catch (_) { products = [...INITIAL_PRODUCTS]; }
+      } else {
+        products = [...INITIAL_PRODUCTS];
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+      }
+
+      renderCategories();
+      renderStore();
+
+      try {
+        const res = await fetch('/api/products');
+        if (res.ok) {
+          const remoteProducts = await res.json();
+          if (Array.isArray(remoteProducts) && remoteProducts.length > 0) {
+            products = remoteProducts;
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+            renderStore();
+            if (document.getElementById('adminModal').classList.contains('open')) {
+              renderAdminItems();
+            }
+          }
+        }
+      } catch (_) {}
+    }
+
+    function saveLocalAndRefresh() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+      renderStore();
+      renderAdminItems();
+    }
+
+    function renderCategories() {
+      const bar = document.getElementById('categoriesBar');
+      bar.innerHTML = CATEGORIES.map(cat => `
+        <button
+          class="cat-pill ${cat === currentCategory ? 'active' : ''}"
+          onclick="selectCategory('${cat}')"
+        >
+          ${cat === 'عروض خاصة' ? '⚡ عروض خاصة' : cat}
+        </button>
+      `).join('');
+    }
+
+    function selectCategory(cat) {
+      currentCategory = cat;
+      document.getElementById('categoryHeading').textContent =
+        cat === 'الكل' ? 'جميع القطع' : `قسم ${cat}`;
+      renderCategories();
+      renderStore();
+    }
+
+    function toggleSearch() {
+      const drawer = document.getElementById('searchDrawer');
+      drawer.classList.toggle('open');
+      if (drawer.classList.contains('open')) {
+        document.getElementById('searchInput').focus();
+      }
+    }
+
+    // بناء الدوائر اللونية مع فحص القاموس أو أكواد الـ HEX مباشرة
+    function buildColorDots(colorsStr) {
+      if (!colorsStr) return '';
+      const list = String(colorsStr).split(/[,،-]/).map(s => s.trim()).filter(Boolean);
+      if (list.length === 0) return '';
+
+      return list.map(name => {
+        const key = name.toLowerCase();
+        let cssColor = COLOR_MAP[key];
+
+        // في حال تم إدخال كود لون مباشر مثل #000000 أو rgb
+        if (!cssColor) {
+          if (name.startsWith('#') || name.startsWith('rgb')) {
+            cssColor = name;
+          } else {
+            cssColor = name;
+          }
+        }
+
+        return `<span class="color-dot" style="background-color: ${safeAttr(cssColor)};" title="${safeAttr(name)}"></span>`;
+      }).join('');
+    }
+
+    function buildSizeTags(sizesStr) {
+      if (!sizesStr) return '';
+      const list = String(sizesStr).split(/[,،-]/).map(s => s.trim()).filter(Boolean);
+      if (list.length === 0) return '';
+      return list.map(sz => `<span class="size-tag">${safeAttr(sz)}</span>`).join('');
+    }
+
+    function renderStore() {
+      const grid = document.getElementById('productsGrid');
+      const query = (document.getElementById('searchInput')?.value || '').trim().toLowerCase();
+
+      const filtered = products.filter(item => {
+        const matchesQuery = !query ||
+          (item.name && item.name.toLowerCase().includes(query)) ||
+          (item.category && item.category.toLowerCase().includes(query)) ||
+          (item.colors && item.colors.toLowerCase().includes(query)) ||
+          (item.sizes && item.sizes.toLowerCase().includes(query));
+
+        if (!matchesQuery) return false;
+        if (currentCategory === 'الكل') return true;
+        if (currentCategory === 'عروض خاصة') return Boolean(item.is_discount) || item.category === 'عروض خاصة';
+        return item.category === currentCategory;
+      });
+
+      document.getElementById('itemsCounter').textContent = `${filtered.length} قطع`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-box">
+            <h3>لا توجد قطع في هذا القسم حالياً</h3>
+            <p>تصفح الأقسام الأخرى أو أضف قطعاً جديدة من لوحة التحكم.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => {
+        const price = Number(item.price) || 0;
+        const oldPrice = item.old_price ? Number(item.old_price) : null;
+        const isDisc = Boolean(item.is_discount);
+        const isSoldOut = Boolean(item.is_sold_out);
+
+        let badgeLabel = 'عرض خاص';
+        if (isDisc && oldPrice && oldPrice > price) {
+          const pct = Math.round(((oldPrice - price) / oldPrice) * 100);
+          badgeLabel = `خصم ${pct}%`;
+        }
+
+        const dotsHtml = buildColorDots(item.colors);
+        const sizesHtml = buildSizeTags(item.sizes);
+
+        return `
+          <article class="product-card ${isSoldOut ? 'sold-out-card' : ''}">
+            <div class="card-media">
+              <img
+                class="card-img"
+                src="${safeAttr(item.image_url)}"
+                alt="${safeAttr(item.name)}"
+                loading="lazy"
+                onerror="this.src='https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80'"
+              />
+              ${isDisc && !isSoldOut ? `<span class="discount-badge">${badgeLabel}</span>` : ''}
+              ${isSoldOut ? `
+                <div class="soldout-overlay">
+                  <span class="soldout-pill">نفدت الكمية</span>
+                </div>
+              ` : ''}
+              <span class="category-chip">${safeAttr(item.category)}</span>
+            </div>
+
+            <div class="card-body">
+              <h2 class="product-title">${safeAttr(item.name)}</h2>
+
+              ${(dotsHtml || sizesHtml) ? `
+                <div class="specs-box">
+                  ${dotsHtml ? `<div class="specs-row"><span class="specs-label">الألوان:</span>${dotsHtml}</div>` : ''}
+                  ${sizesHtml ? `<div class="specs-row"><span class="specs-label">المقاس:</span>${sizesHtml}</div>` : ''}
+                </div>
+              ` : ''}
+
+              <div class="price-row">
+                <span class="current-price">${price} <span class="currency">د.ل</span></span>
+                ${isDisc && oldPrice ? `<span class="old-price">${oldPrice} د.ل</span>` : ''}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function openAdminTrigger() {
+      if (isAdminUnlocked) {
+        openAdminModal();
+      } else {
+        document.getElementById('pinField').value = '';
+        document.getElementById('pinModal').classList.add('open');
+        setTimeout(() => document.getElementById('pinField').focus(), 80);
+      }
+    }
+
+    function closePinModal() {
+      document.getElementById('pinModal').classList.remove('open');
+    }
+
+    function handlePinSubmit(e) {
+      e.preventDefault();
+      const entered = document.getElementById('pinField').value.trim();
+      if (entered === ADMIN_PIN) {
+        isAdminUnlocked = true;
+        sessionStorage.setItem('blanko_unlocked', 'true');
+        closePinModal();
+        openAdminModal();
+        showToast('مرحباً بك في لوحة تحكم BLANKO');
+      } else {
+        showToast('رمز الـ PIN غير صحيح!');
+      }
+    }
+
+    function openAdminModal() {
+      renderAdminItems();
+      document.getElementById('adminModal').classList.add('open');
+    }
+
+    function closeAdminModal() {
+      document.getElementById('adminModal').classList.remove('open');
+      resetProductForm();
+    }
+
+    function toggleOldPriceInput() {
+      const checked = document.getElementById('pDiscount').checked;
+      document.getElementById('oldPriceGroup').style.display = checked ? 'block' : 'none';
+    }
+
+    async function handleSaveProduct(e) {
+      e.preventDefault();
+      const editId = document.getElementById('editId').value;
+
+      const payload = {
+        id: editId ? Number(editId) : Date.now(),
+        name: document.getElementById('pName').value.trim(),
+        price: Number(document.getElementById('pPrice').value),
+        category: document.getElementById('pCategory').value,
+        image_url: document.getElementById('pImage').value.trim(),
+        colors: document.getElementById('pColors').value.trim(),
+        sizes: document.getElementById('pSizes').value.trim(),
+        is_discount: document.getElementById('pDiscount').checked,
+        old_price: document.getElementById('pOldPrice').value
+          ? Number(document.getElementById('pOldPrice').value)
+          : null,
+        is_sold_out: document.getElementById('pSoldOut').checked
+      };
+
+      if (editId) {
+        products = products.map(p => p.id === Number(editId) ? payload : p);
+      } else {
+        products.unshift(payload);
+      }
+
+      saveLocalAndRefresh();
+      resetProductForm();
+      showToast(editId ? 'تم تحديث بيانات القطعة ✓' : 'تمت إضافة القطعة للمتجر ✓');
+
+      try {
+        const res = await fetch('/api/products', {
+          method: editId ? 'PUT' : 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
+          body: JSON.stringify(payload)
+        });
+        if (res.ok && !editId) {
+          const created = await res.json();
+          if (created && created.id) {
+            products = products.map(p => p.id === payload.id ? created : p);
+            saveLocalAndRefresh();
+          }
+        }
+      } catch (_) {}
+    }
+
+    function loadProductToEdit(id) {
+      const item = products.find(p => p.id === id);
+      if (!item) return;
+
+      document.getElementById('editId').value = item.id;
+      document.getElementById('pName').value = item.name || '';
+      document.getElementById('pPrice').value = item.price || '';
+      document.getElementById('pCategory').value = item.category || 'هوديز';
+      document.getElementById('pImage').value = item.image_url || '';
+      document.getElementById('pColors').value = item.colors || '';
+      document.getElementById('pSizes').value = item.sizes || '';
+      document.getElementById('pDiscount').checked = Boolean(item.is_discount);
+      document.getElementById('pOldPrice').value = item.old_price || '';
+      document.getElementById('pSoldOut').checked = Boolean(item.is_sold_out);
+
+      toggleOldPriceInput();
+      document.getElementById('formHeaderTitle').textContent = '✎ تعديل القطعة أو الحذاء';
+      document.getElementById('cancelEditBtn').style.display = 'inline';
+      document.getElementById('submitProductBtn').textContent = 'حفظ التعديلات';
+    }
+
+    function resetProductForm() {
+      document.getElementById('productForm').reset();
+      document.getElementById('editId').value = '';
+      toggleOldPriceInput();
+      document.getElementById('formHeaderTitle').textContent = '+ إضافة قطعة جديدة';
+      document.getElementById('cancelEditBtn').style.display = 'none';
+      document.getElementById('submitProductBtn').textContent = 'حفظ ونشر في المتجر';
+    }
+
+    function toggleSoldOutStatus(id) {
+      const item = products.find(p => p.id === id);
+      if (!item) return;
+
+      item.is_sold_out = !item.is_sold_out;
+      saveLocalAndRefresh();
+      showToast(item.is_sold_out ? 'تم وضع علامة: نفدت الكمية' : 'تمت إعادة تفعيل توفر القطعة ✓');
+
+      fetch('/api/products', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
+        body: JSON.stringify({ action: 'toggle_sold_out', id: item.id, is_sold_out: item.is_sold_out })
+      }).catch(() => {});
+    }
+
+    function toggleSingleDiscount(id) {
+      const item = products.find(p => p.id === id);
+      if (!item) return;
+
+      const nextState = !item.is_discount;
+      let oldPrice = item.old_price;
+
+      if (nextState && (!oldPrice || Number(oldPrice) <= Number(item.price))) {
+        const suggested = Math.round(Number(item.price) * 1.25);
+        const ask = prompt('أدخل السعر السابق (المشطوب):', suggested);
+        if (ask === null) return;
+        oldPrice = Number(ask) || suggested;
+      }
+
+      item.is_discount = nextState;
+      item.old_price = oldPrice;
+      saveLocalAndRefresh();
+      showToast(nextState ? 'تم تفعيل التخفيض ⚡' : 'تم إخفاء التخفيض');
+
+      fetch('/api/products', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
+        body: JSON.stringify({
+          action: 'toggle_discount',
+          id: item.id,
+          price: item.price,
+          old_price: item.old_price,
+          is_discount: item.is_discount
+        })
+      }).catch(() => {});
+    }
+
+    function clearAllDiscounts() {
+      if (!confirm('هل تريد إلغاء جميع التخفيضات من المتجر بالكامل؟')) return;
+      products = products.map(p => ({ ...p, is_discount: false }));
+      saveLocalAndRefresh();
+      showToast('تم إلغاء جميع التخفيضات بنجاح ✓');
+
+      fetch('/api/products', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
+        body: JSON.stringify({ action: 'disable_all_discounts' })
+      }).catch(() => {});
+    }
+
+    function removeProduct(id) {
+      if (!confirm('هل أنت متأكد من حذف هذه القطعة نهائياً؟')) return;
+      products = products.filter(p => p.id !== id);
+      saveLocalAndRefresh();
+      showToast('تم حذف القطعة');
+
+      fetch(`/api/products?id=${id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
+        body: JSON.stringify({ id })
+      }).catch(() => {});
+    }
+
+    function renderAdminItems() {
+      const list = document.getElementById('adminItemsList');
+      document.getElementById('adminCount').textContent = products.length;
+
+      list.innerHTML = products.map(item => `
+        <div class="admin-item">
+          <div class="admin-item-info">
+            <img class="admin-thumb" src="${safeAttr(item.image_url)}" alt="" />
+            <div style="min-width:0;">
+              <div class="admin-item-title">${safeAttr(item.name)}</div>
+              <div class="admin-item-meta">
+                <span style="color:var(--yellow-primary); font-weight:800;">${item.price} د.ل</span>
+                <span>• ${safeAttr(item.category)}</span>
+                ${item.sizes ? `<span>• [${safeAttr(item.sizes)}]</span>` : ''}
+              </div>
+            </div>
+          </div>
+          <div class="admin-item-controls">
+            <button
+              class="chip-btn ${item.is_sold_out ? 'active-soldout' : ''}"
+              onclick="toggleSoldOutStatus(${item.id})"
+            >
+              ${item.is_sold_out ? 'نفدت الكمية 🚫' : 'متوفر ✓'}
+            </button>
+            <button
+              class="chip-btn ${item.is_discount ? 'active-discount' : ''}"
+              onclick="toggleSingleDiscount(${item.id})"
+            >
+              ${item.is_discount ? 'خصم مفعل ⚡' : 'تفعيل خصم'}
+            </button>
+            <button class="chip-btn" onclick="loadProductToEdit(${item.id})">تعديل</button>
+            <button class="chip-btn delete" onclick="removeProduct(${item.id})">حذف</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function showToast(text) {
+      const t = document.getElementById('toast');
+      t.textContent = text;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2800);
+    }
+
+    function safeAttr(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    initStore();
+  </script>
+</body>
+</html>
