@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   const sql = neon(process.env.DATABASE_URL);
 
   try {
-    // 1. إنشاء الجدول إن لم يكن موجوداً
+    // 1. إنشاء الجدول إن لم يكن موجوداً بمعرف BIGINT
     await sql`
       CREATE TABLE IF NOT EXISTS products (
         id BIGINT PRIMARY KEY,
@@ -30,7 +30,8 @@ export default async function handler(req, res) {
       );
     `;
 
-    // 2. ترقية الجدول القديم وإضافة الأعمدة إن كانت مفقودة
+    // 2. ترقية عمود الـ id لاستيعاب الأرقام الطويلة وترقية باقي الأعمدة
+    await sql`ALTER TABLE products ALTER COLUMN id TYPE BIGINT;`;
     await sql`ALTER TABLE products ADD COLUMN IF NOT EXISTS colors TEXT;`;
     await sql`ALTER TABLE products ADD COLUMN IF NOT EXISTS sizes TEXT;`;
     await sql`ALTER TABLE products ADD COLUMN IF NOT EXISTS old_price NUMERIC;`;
@@ -40,7 +41,7 @@ export default async function handler(req, res) {
     console.error('Schema update error:', schemaErr);
   }
 
-  // جلب المنتجات للمتجر
+  // جلب المنتجات
   if (req.method === 'GET') {
     try {
       const rows = await sql`SELECT * FROM products ORDER BY id DESC;`;
@@ -50,7 +51,7 @@ export default async function handler(req, res) {
     }
   }
 
-  // التحقق من رمز الـ PIN
+  // التحقق من PIN الإدارة
   const clientPin = req.headers['x-admin-pin'] || req.body?.admin_pin || req.body?.pin || req.query?.admin_pin;
   if (String(clientPin).trim() !== ADMIN_PIN) {
     return res.status(401).json({ error: 'رمز الـ PIN غير صحيح' });
@@ -80,7 +81,7 @@ export default async function handler(req, res) {
     }
   }
 
-  // تعديل منتج أو تغيير حالة الخصم/الكمية
+  // تعديل أو تبديل حالة
   if (req.method === 'PUT') {
     const p = req.body;
     try {
