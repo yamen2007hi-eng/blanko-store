@@ -12,24 +12,35 @@ export default async function handler(req, res) {
   const ADMIN_PIN = '1992657';
   const sql = neon(process.env.DATABASE_URL);
 
-  // إنشاء جدول المنتجات تلقائياً في Neon
-  await sql`
-    CREATE TABLE IF NOT EXISTS products (
-      id BIGINT PRIMARY KEY,
-      name TEXT NOT NULL,
-      price NUMERIC NOT NULL,
-      old_price NUMERIC,
-      category TEXT NOT NULL,
-      image_url TEXT NOT NULL,
-      colors TEXT,
-      sizes TEXT,
-      is_discount BOOLEAN DEFAULT FALSE,
-      is_sold_out BOOLEAN DEFAULT FALSE,
-      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
-  `;
+  try {
+    // 1. إنشاء الجدول إن لم يكن موجوداً
+    await sql`
+      CREATE TABLE IF NOT EXISTS products (
+        id BIGINT PRIMARY KEY,
+        name TEXT NOT NULL,
+        price NUMERIC NOT NULL,
+        old_price NUMERIC,
+        category TEXT NOT NULL,
+        image_url TEXT NOT NULL,
+        colors TEXT,
+        sizes TEXT,
+        is_discount BOOLEAN DEFAULT FALSE,
+        is_sold_out BOOLEAN DEFAULT FALSE,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    `;
 
-  // 1. جلب المنتجات للمتجر
+    // 2. ترقية الجدول القديم وإضافة الأعمدة إن كانت مفقودة
+    await sql`ALTER TABLE products ADD COLUMN IF NOT EXISTS colors TEXT;`;
+    await sql`ALTER TABLE products ADD COLUMN IF NOT EXISTS sizes TEXT;`;
+    await sql`ALTER TABLE products ADD COLUMN IF NOT EXISTS old_price NUMERIC;`;
+    await sql`ALTER TABLE products ADD COLUMN IF NOT EXISTS is_discount BOOLEAN DEFAULT FALSE;`;
+    await sql`ALTER TABLE products ADD COLUMN IF NOT EXISTS is_sold_out BOOLEAN DEFAULT FALSE;`;
+  } catch (schemaErr) {
+    console.error('Schema update error:', schemaErr);
+  }
+
+  // جلب المنتجات للمتجر
   if (req.method === 'GET') {
     try {
       const rows = await sql`SELECT * FROM products ORDER BY id DESC;`;
@@ -39,13 +50,13 @@ export default async function handler(req, res) {
     }
   }
 
-  // فحص الـ PIN بدقة من الطلب
+  // التحقق من رمز الـ PIN
   const clientPin = req.headers['x-admin-pin'] || req.body?.admin_pin || req.body?.pin || req.query?.admin_pin;
   if (String(clientPin).trim() !== ADMIN_PIN) {
     return res.status(401).json({ error: 'رمز الـ PIN غير صحيح' });
   }
 
-  // 2. إضافة منتج جديد
+  // إضافة منتج جديد
   if (req.method === 'POST') {
     const p = req.body;
     try {
@@ -69,7 +80,7 @@ export default async function handler(req, res) {
     }
   }
 
-  // 3. تعديل منتج أو تفعيل خصم
+  // تعديل منتج أو تغيير حالة الخصم/الكمية
   if (req.method === 'PUT') {
     const p = req.body;
     try {
@@ -100,7 +111,7 @@ export default async function handler(req, res) {
     }
   }
 
-  // 4. حذف منتج
+  // حذف منتج
   if (req.method === 'DELETE') {
     const id = req.query.id || req.body?.id;
     try {
