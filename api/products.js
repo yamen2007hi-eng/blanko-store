@@ -12,35 +12,6 @@ export default async function handler(req, res) {
   const ADMIN_PIN = '1992657';
   const sql = neon(process.env.DATABASE_URL);
 
-  try {
-    // 1. إنشاء الجدول إن لم يكن موجوداً بمعرف BIGINT
-    await sql`
-      CREATE TABLE IF NOT EXISTS products (
-        id BIGINT PRIMARY KEY,
-        name TEXT NOT NULL,
-        price NUMERIC NOT NULL,
-        old_price NUMERIC,
-        category TEXT NOT NULL,
-        image_url TEXT NOT NULL,
-        colors TEXT,
-        sizes TEXT,
-        is_discount BOOLEAN DEFAULT FALSE,
-        is_sold_out BOOLEAN DEFAULT FALSE,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-      );
-    `;
-
-    // 2. ترقية عمود الـ id لاستيعاب الأرقام الطويلة وترقية باقي الأعمدة
-    await sql`ALTER TABLE products ALTER COLUMN id TYPE BIGINT;`;
-    await sql`ALTER TABLE products ADD COLUMN IF NOT EXISTS colors TEXT;`;
-    await sql`ALTER TABLE products ADD COLUMN IF NOT EXISTS sizes TEXT;`;
-    await sql`ALTER TABLE products ADD COLUMN IF NOT EXISTS old_price NUMERIC;`;
-    await sql`ALTER TABLE products ADD COLUMN IF NOT EXISTS is_discount BOOLEAN DEFAULT FALSE;`;
-    await sql`ALTER TABLE products ADD COLUMN IF NOT EXISTS is_sold_out BOOLEAN DEFAULT FALSE;`;
-  } catch (schemaErr) {
-    console.error('Schema update error:', schemaErr);
-  }
-
   // جلب المنتجات
   if (req.method === 'GET') {
     try {
@@ -51,7 +22,7 @@ export default async function handler(req, res) {
     }
   }
 
-  // التحقق من PIN الإدارة
+  // التحقق من رمز الـ PIN للإدارة
   const clientPin = req.headers['x-admin-pin'] || req.body?.admin_pin || req.body?.pin || req.query?.admin_pin;
   if (String(clientPin).trim() !== ADMIN_PIN) {
     return res.status(401).json({ error: 'رمز الـ PIN غير صحيح' });
@@ -81,17 +52,22 @@ export default async function handler(req, res) {
     }
   }
 
-  // تعديل أو تبديل حالة
+  // التعديل وتغيير الحالات (PUT)
   if (req.method === 'PUT') {
     const p = req.body;
+    const prodId = p.id;
+
     try {
       if (p.action === 'toggle_sold_out') {
-        await sql`UPDATE products SET is_sold_out = ${p.is_sold_out} WHERE id = ${p.id};`;
+        await sql`UPDATE products SET is_sold_out = ${Boolean(p.is_sold_out)} WHERE id = ${prodId};`;
       } else if (p.action === 'toggle_discount') {
-        await sql`UPDATE products SET is_discount = ${p.is_discount}, old_price = ${p.old_price} WHERE id = ${p.id};`;
+        const hasDisc = Boolean(p.is_discount);
+        const oldP = p.old_price ? Number(p.old_price) : null;
+        await sql`UPDATE products SET is_discount = ${hasDisc}, old_price = ${oldP} WHERE id = ${prodId};`;
       } else if (p.action === 'disable_all_discounts') {
         await sql`UPDATE products SET is_discount = FALSE;`;
       } else {
+        // تعديل بيانات المنتج الكاملة
         await sql`
           UPDATE products SET
             name = ${p.name},
@@ -101,13 +77,14 @@ export default async function handler(req, res) {
             image_url = ${p.image_url},
             colors = ${p.colors || ''},
             sizes = ${p.sizes || ''},
-            is_discount = ${p.is_discount || false},
-            is_sold_out = ${p.is_sold_out || false}
-          WHERE id = ${p.id};
+            is_discount = ${Boolean(p.is_discount)},
+            is_sold_out = ${Boolean(p.is_sold_out)}
+          WHERE id = ${prodId};
         `;
       }
       return res.status(200).json({ success: true });
     } catch (e) {
+      console.error('Update error:', e);
       return res.status(500).json({ error: e.message });
     }
   }
