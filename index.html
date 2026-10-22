@@ -1565,25 +1565,33 @@
     }
 
     function loadProductToEdit(id) {
-      const item = products.find(p => p.id === id);
-      if (!item) return;
-
-      document.getElementById('editId').value = item.id;
-      document.getElementById('pName').value = item.name || '';
-      document.getElementById('pPrice').value = item.price || '';
-      document.getElementById('pCategory').value = item.category || 'هوديز';
-      document.getElementById('pImage').value = item.image_url || '';
-      document.getElementById('pColors').value = item.colors || '';
-      document.getElementById('pSizes').value = item.sizes || '';
-      document.getElementById('pDiscount').checked = Boolean(item.is_discount);
-      document.getElementById('pOldPrice').value = item.old_price || '';
-      document.getElementById('pSoldOut').checked = Boolean(item.is_sold_out);
-
-      toggleOldPriceInput();
-      document.getElementById('formHeaderTitle').textContent = '✎ تعديل القطعة أو الحذاء';
-      document.getElementById('cancelEditBtn').style.display = 'inline';
-      document.getElementById('submitProductBtn').textContent = 'حفظ التعديلات سحابياً';
+    const item = products.find(p => String(p.id) === String(id));
+    if (!item) {
+        alert('تعذر العثور على القطعة!');
+        return;
     }
+
+    document.getElementById('editId').value = item.id;
+    document.getElementById('pName').value = item.name || '';
+    document.getElementById('pPrice').value = item.price || '';
+    document.getElementById('pCategory').value = item.category || 'هوديز';
+    document.getElementById('pImage').value = item.image_url || '';
+    document.getElementById('pColors').value = item.colors || '';
+    document.getElementById('pSizes').value = item.sizes || '';
+    document.getElementById('pDiscount').checked = Boolean(item.is_discount);
+    document.getElementById('pOldPrice').value = item.old_price || '';
+    document.getElementById('pSoldOut').checked = Boolean(item.is_sold_out);
+
+    toggleOldPriceInput();
+    document.getElementById('formHeaderTitle').textContent = '✏️ تعديل القطعة أو الحذاء';
+    document.getElementById('cancelEditBtn').style.display = 'inline';
+    document.getElementById('submitProductBtn').textContent = 'حفظ التعديلات سحابياً ✓';
+
+    // سحب الشاشة للأعلى تلقائياً لمكان التعديل
+    const modal = document.getElementById('adminModal');
+    if (modal) modal.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
     function resetProductForm() {
       document.getElementById('productForm').reset();
@@ -1595,8 +1603,8 @@
     }
 
     async function toggleSoldOutStatus(id) {
-      const item = products.find(p => p.id === id);
-      if (!item) return;
+      const item = products.find(p => String(p.id) === String(id));
+            if (!item) return;
 
       const newStatus = !item.is_sold_out;
       item.is_sold_out = newStatus;
@@ -1621,8 +1629,8 @@
     }
 
     async function toggleSingleDiscount(id) {
-      const item = products.find(p => p.id === id);
-      if (!item) return;
+      const item = products.find(p => String(p.id) === String(id));
+            if (!item) return;
 
       const nextState = !item.is_discount;
       let oldPrice = item.old_price;
