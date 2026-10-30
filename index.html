@@ -1,1766 +1,2451 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#0A0A0A" />
-  <title>BLANKO | For Men's Clothing</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>منصة وَرِيـد | المنظومة الوطنية الموحدة لخدمات نقل الدم والطوارئ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  
   <style>
-    /* ==================== الهوية البصرية الفاخرة (Luxury Streetwear CSS) ==================== */
     :root {
-      --bg-main: #0A0A0A;
-      --bg-elevated: #121212;
-      --bg-card: #151515;
-      --bg-glass: rgba(18, 18, 18, 0.90);
-      --yellow-primary: #FFE500;
-      --yellow-accent: #FACC15;
-      --yellow-glow: rgba(255, 229, 0, 0.18);
-      --text-white: #FAFAFA;
-      --text-muted: #A0A0A0;
-      --text-dim: #5E5E5E;
-      --border-subtle: #242424;
-      --border-hover: #3A3A3A;
-      --danger: #FF3B30;
-      --success: #25D366;
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
-      --radius-pill: 9999px;
-      --shadow-card: 0 14px 34px rgba(0, 0, 0, 0.7);
-      --font-ar: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --font-serif: "Didot", "Bodoni MT", "Times New Roman", Georgia, serif;
-      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      --primary: #b91c1c;
+      --primary-hover: #991b1b;
+      --primary-light: #fef2f2;
+      --primary-border: #fecaca;
+      --secondary: #0f172a;
+      --accent-blue: #0284c7;
+      --accent-blue-light: #f0f9ff;
+      --accent-blue-border: #bae6fd;
+      --success: #15803d;
+      --success-light: #f0fdf4;
+      --success-border: #bbf7d0;
+      --warning: #b45309;
+      --warning-light: #fffbeb;
+      --warning-border: #fde68a;
+      --danger: #dc2626;
+      --bg-main: #f1f5f9;
+      --bg-card: #ffffff;
+      --bg-subtle: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-light: #94a3b8;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 4px 16px -2px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 12px 28px -4px rgba(15, 23, 42, 0.14);
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    [data-theme="dark"] {
+      --primary: #ef4444;
+      --primary-hover: #dc2626;
+      --primary-light: rgba(239, 68, 68, 0.14);
+      --primary-border: rgba(239, 68, 68, 0.35);
+      --secondary: #f8fafc;
+      --accent-blue: #38bdf8;
+      --accent-blue-light: rgba(56, 189, 248, 0.12);
+      --accent-blue-border: rgba(56, 189, 248, 0.3);
+      --success: #22c55e;
+      --success-light: rgba(34, 197, 94, 0.12);
+      --success-border: rgba(34, 197, 94, 0.3);
+      --warning: #f59e0b;
+      --warning-light: rgba(245, 158, 11, 0.12);
+      --warning-border: rgba(245, 158, 11, 0.3);
+      --bg-main: #090d16;
+      --bg-card: #111827;
+      --bg-subtle: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      --border-color: #1f2937;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.6);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: 'Tajawal', sans-serif;
       -webkit-tap-highlight-color: transparent;
     }
 
-    html, body {
+    body {
       background-color: var(--bg-main);
-      color: var(--text-white);
-      font-family: var(--font-ar);
-      line-height: 1.5;
-      min-height: 100vh;
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 90px;
+      transition: background-color 0.25s, color 0.25s;
+    }
+
+    /* الشريط العلوي */
+    .gov-topbar {
+      background: #0f172a;
+      color: #e2e8f0;
+      font-size: 12px;
+      padding: 8px 16px;
+      border-bottom: 2px solid var(--primary);
+    }
+    .gov-topbar-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .gov-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      animation: pulseGreen 2s infinite;
+    }
+    @keyframes pulseGreen {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-top-util {
+      background: rgba(255, 255, 255, 0.1);
+      color: #f8fafc;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-top-util:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    /* الهيدر الرئيسي للمنصة */
+    header.main-header {
+      background: linear-gradient(135deg, #991b1b 0%, #7f1d1d 55%, #450a0a 100%);
+      color: white;
+      padding: 28px 16px 34px 16px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    header.main-header::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -10%;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .header-container {
+      max-width: 1080px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .brand-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .brand-identity {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-emblem {
+      width: 58px;
+      height: 58px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+    .brand-text h1 {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .official-seal-tag {
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 2px 9px;
+      border-radius: 20px;
+      font-weight: 700;
+    }
+    .brand-text p {
+      font-size: 13.5px;
+      color: #fecaca;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* شريط الإحصائيات الحية (مطابق للتصميم النظيف) */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+    @media (min-width: 760px) {
+      .kpi-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .kpi-card {
+      background: rgba(15, 23, 42, 0.38);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 12px 14px;
+      border-radius: 12px;
       display: flex;
       flex-direction: column;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
+      gap: 2px;
+    }
+    .kpi-val {
+      font-size: 22px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+    .kpi-lbl {
+      font-size: 12px;
+      color: #fca5a5;
+      font-weight: 700;
     }
 
-    button, input, select {
-      font-family: inherit;
-      border: none;
-      outline: none;
-      background: none;
-      color: inherit;
+    /* شريط نداءات الاستغاثة العاجلة */
+    .sos-banner {
+      max-width: 1080px;
+      margin: -18px auto 18px auto;
+      padding: 0 15px;
+      position: relative;
+      z-index: 10;
     }
-
-    button {
-      cursor: pointer;
-      user-select: none;
-    }
-
-    /* ==================== الشريط العلوي والتواصل ==================== */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      background: rgba(10, 10, 10, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .header-top {
-      max-width: 1240px;
-      margin: 0 auto;
+    .sos-banner-inner {
+      background: var(--bg-card);
+      border: 2px solid #dc2626;
+      border-radius: 14px;
       padding: 12px 16px;
+      box-shadow: var(--shadow-md);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .sos-tag {
+      background: #dc2626;
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      animation: pulseRed 1.8s infinite;
+    }
+    @keyframes pulseRed {
+      0% { opacity: 1; }
+      50% { opacity: 0.78; }
+      100% { opacity: 1; }
+    }
+    .sos-text {
+      flex: 1;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      min-width: 220px;
+    }
+    .btn-sos-action {
+      background: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid var(--primary-border);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 800;
+      cursor: pointer;
     }
 
-    .header-side {
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* شريط التنقل الرئيسي */
+    .tab-radio { display: none; }
+    .nav-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 20px;
+      background: var(--bg-card);
+      padding: 8px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 640px) {
+      .nav-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .nav-label {
+      padding: 12px 8px;
+      font-size: 13.5px;
+      font-weight: 800;
+      border-radius: 10px;
+      color: var(--text-muted);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border: 1px solid transparent;
+    }
+    .nav-label:hover {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+    }
+    #tab-search:checked ~ .nav-bar label[for="tab-search"],
+    #tab-banks:checked ~ .nav-bar label[for="tab-banks"],
+    #tab-compat:checked ~ .nav-bar label[for="tab-compat"],
+    #tab-reg:checked ~ .nav-bar label[for="tab-reg"] {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 12px rgba(185, 28, 28, 0.3);
+    }
+
+    .view-box { display: none; }
+    #tab-search:checked ~ #view-search { display: block; }
+    #tab-banks:checked ~ #view-banks { display: block; }
+    #tab-compat:checked ~ #view-compat { display: block; }
+    #tab-reg:checked ~ #view-reg { display: block; }
+
+    /* البطاقات العامة */
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .section-head h2 {
+      font-size: 19px;
+      font-weight: 900;
+      color: var(--text-main);
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .icon-btn {
-      height: 40px;
-      min-width: 40px;
-      padding: 0 10px;
-      border-radius: var(--radius-md);
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-subtle);
+    /* أزرار اختيار الفصيلة السريعة */
+    .blood-selector-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .blood-pills-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    @media (min-width: 820px) {
+      .blood-pills-grid {
+        grid-template-columns: repeat(9, 1fr);
+      }
+    }
+    @media (max-width: 420px) {
+      .blood-pills-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .blood-pill-btn {
+      background: var(--bg-subtle);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      padding: 10px 6px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.18s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+    }
+    .blood-pill-btn:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .blood-pill-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+      box-shadow: 0 4px 12px rgba(185, 28, 28, 0.28);
+    }
+    .blood-pill-type {
+      font-size: 17px;
+      font-weight: 900;
+      direction: ltr;
+    }
+    .blood-pill-count {
+      font-size: 11px;
+      font-weight: 700;
+      opacity: 0.85;
+    }
+
+    /* لوحة البحث والتصفية (مطابقة للتصميم النظيف 2x2) */
+    .advanced-filter-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      align-items: end;
+    }
+    @media (max-width: 520px) {
+      .filter-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .form-group { margin-bottom: 0; }
+    .form-group-spaced { margin-bottom: 15px; }
+    label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1.5px solid var(--border-color);
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-main);
+      background: var(--bg-card);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    /* أزرار تصفية التفعيل */
+    .activation-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border-color);
+      align-items: center;
+      justify-content: space-between;
+    }
+    .activation-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .act-filter-btn {
+      padding: 8px 14px;
+      border-radius: 9px;
+      font-size: 12.5px;
+      font-weight: 800;
+      border: 1.5px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .act-filter-btn.active-all {
+      background: var(--secondary);
+      color: var(--bg-card);
+      border-color: var(--secondary);
+    }
+    .act-filter-btn.active-verified {
+      background: var(--success);
+      color: white;
+      border-color: var(--success);
+    }
+    .act-filter-btn.active-unverified {
+      background: var(--warning);
+      color: white;
+      border-color: var(--warning);
+    }
+
+    .btn-search-trigger {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      color: var(--text-white);
-      font-size: 13px;
-      font-weight: 700;
-      transition: var(--transition);
-      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-search-trigger:hover {
+      background: var(--primary-hover);
     }
 
-    .icon-btn:hover, .icon-btn:active {
-      border-color: var(--yellow-primary);
-      color: var(--yellow-primary);
-      transform: translateY(-1px);
+    /* بطاقة المتبرع */
+    .donors-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
     }
-
-    .icon-btn.whatsapp-btn {
-      border-color: rgba(37, 211, 102, 0.35);
-      background: rgba(37, 211, 102, 0.08);
-      color: #4AE584;
-    }
-
-    .icon-btn.maps-btn {
-      border-color: rgba(255, 229, 0, 0.3);
-      background: rgba(255, 229, 0, 0.06);
-      color: var(--yellow-primary);
-    }
-
-    .btn-label-hide-mobile {
-      display: none;
-    }
-
-    @media (min-width: 640px) {
-      .btn-label-hide-mobile {
-        display: inline;
+    @media (max-width: 760px) {
+      .donors-grid {
+        grid-template-columns: 1fr;
       }
     }
+    .donor-card {
+      border: 1.5px solid var(--border-color);
+      border-radius: 14px;
+      padding: 16px;
+      background: var(--bg-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .donor-card:hover {
+      border-color: var(--primary-border);
+      box-shadow: var(--shadow-md);
+    }
+    .donor-card.is-verified-card { border-right: 5px solid var(--success); }
+    .donor-card.is-unverified-card { border-right: 5px solid var(--warning); }
 
-    .brand-logo {
+    .donor-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .blood-circle {
+      min-width: 56px;
+      height: 56px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 14px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .brand-monogram {
-      width: 44px;
-      height: 44px;
-      background-color: var(--yellow-primary);
-      color: #000000;
-      font-family: var(--font-serif);
-      font-size: 25px;
-      font-weight: 700;
-      letter-spacing: -1px;
-      display: flex;
-      align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 20px var(--yellow-glow);
-      transition: var(--transition);
-    }
-
-    .brand-logo:active .brand-monogram {
-      transform: scale(0.95);
-    }
-
-    .brand-title {
-      font-family: var(--font-serif);
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      color: var(--text-white);
-      margin-top: 4px;
+      font-weight: 900;
+      font-size: 20px;
+      direction: ltr;
       line-height: 1;
     }
+    .blood-circle span { font-size: 9px; font-weight: 700; margin-top: 2px; }
 
-    .brand-subtitle {
-      font-family: var(--font-serif);
-      font-size: 8px;
-      letter-spacing: 1.8px;
+    .donor-meta { flex: 1; }
+    .donor-code-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 5px;
+    }
+    .donor-code-badge {
+      font-size: 14.5px;
+      font-weight: 900;
+      color: var(--text-main);
+      letter-spacing: 0.3px;
+    }
+    .badge-verified {
+      background: var(--success-light);
+      color: var(--success);
+      border: 1px solid var(--success-border);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .badge-unverified {
+      background: var(--warning-light);
+      color: var(--warning);
+      border: 1px solid var(--warning-border);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .donor-details-list {
+      font-size: 13px;
       color: var(--text-muted);
-      margin-top: 2px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
       font-weight: 600;
     }
 
-    .search-drawer {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 16px 12px;
-      display: none;
-    }
-
-    .search-drawer.open {
-      display: block;
-    }
-
-    .search-input {
-      width: 100%;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 11px 16px;
-      font-size: 14px;
-      color: var(--text-white);
-      transition: var(--transition);
-    }
-
-    .search-input:focus {
-      border-color: var(--yellow-primary);
-      box-shadow: 0 0 0 3px var(--yellow-glow);
-    }
-
-    .categories-bar {
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      background: rgba(14, 14, 14, 0.96);
-    }
-
-    .categories-scroll {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 10px 16px;
+    .donor-tags-row {
       display: flex;
-      align-items: center;
-      gap: 8px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-
-    .categories-scroll::-webkit-scrollbar {
-      display: none;
-    }
-
-    .cat-pill {
-      padding: 7px 15px;
-      border-radius: var(--radius-pill);
-      font-size: 13px;
-      font-weight: 700;
-      white-space: nowrap;
-      background: var(--bg-elevated);
-      color: var(--text-muted);
-      border: 1px solid var(--border-subtle);
-      transition: var(--transition);
-    }
-
-    .cat-pill:hover {
-      color: var(--text-white);
-      border-color: var(--border-hover);
-    }
-
-    .cat-pill.active {
-      background: var(--yellow-primary);
-      color: #000000;
-      border-color: var(--yellow-primary);
-      box-shadow: 0 4px 16px var(--yellow-glow);
-      transform: translateY(-1px);
-    }
-
-    /* ==================== شبكة المنتجات ==================== */
-    .store-container {
-      max-width: 1240px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 20px 14px 60px;
-      flex-grow: 1;
-    }
-
-    .section-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      font-size: 18px;
-      font-weight: 800;
-    }
-
-    .heading-accent {
-      width: 5px;
-      height: 20px;
-      background: var(--yellow-primary);
-      border-radius: var(--radius-pill);
-      display: inline-block;
-    }
-
-    .items-counter {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text-muted);
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-subtle);
-      padding: 5px 12px;
-      border-radius: var(--radius-pill);
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    @media (min-width: 700px) {
-      .products-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 20px;
-      }
-    }
-
-    @media (min-width: 1040px) {
-      .products-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 22px;
-      }
-    }
-
-    .product-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: var(--transition);
-      position: relative;
-      box-shadow: var(--shadow-card);
-    }
-
-    .product-card:hover {
-      border-color: rgba(255, 229, 0, 0.5);
-      transform: translateY(-4px);
-    }
-
-    .product-card.sold-out-card {
-      opacity: 0.78;
-    }
-
-    .card-media {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      background: #0F0F0F;
-      overflow: hidden;
-    }
-
-    .card-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .product-card:hover .card-img {
-      transform: scale(1.05);
-    }
-
-    .product-card.sold-out-card .card-img {
-      filter: grayscale(65%) contrast(95%);
-    }
-
-    .discount-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: var(--yellow-primary);
-      color: #000000;
-      font-size: 11px;
-      font-weight: 900;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
-      z-index: 2;
-    }
-
-    .soldout-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(2px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 3;
-    }
-
-    .soldout-pill {
-      background: rgba(255, 59, 48, 0.92);
-      color: #FFFFFF;
-      font-size: 12px;
-      font-weight: 900;
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-      letter-spacing: 0.5px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-    }
-
-    .category-chip {
-      position: absolute;
-      bottom: 9px;
-      left: 9px;
-      background: rgba(10, 10, 10, 0.82);
-      backdrop-filter: blur(6px);
-      color: #E0E0E0;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      z-index: 2;
-    }
-
-    .card-body {
-      padding: 12px 13px 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex-grow: 1;
-      gap: 9px;
-    }
-
-    .product-title {
-      font-size: 13.5px;
-      font-weight: 800;
-      color: var(--text-white);
-      line-height: 1.35;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .specs-box {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      margin-top: 2px;
-    }
-
-    .specs-row {
-      display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       gap: 6px;
+      margin-top: 8px;
+    }
+    .tag-status-ready {
+      background: var(--success-light);
+      color: var(--success);
+      border: 1px solid var(--success-border);
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 800;
+    }
+    .tag-status-rest {
+      background: var(--warning-light);
+      color: var(--warning);
+      border: 1px solid var(--warning-border);
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 800;
+    }
+    .tag-time {
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+    }
+
+    .donor-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-color);
+      gap: 8px;
       flex-wrap: wrap;
     }
-
-    .specs-label {
-      font-size: 10.5px;
-      color: var(--text-muted);
-      font-weight: 700;
-    }
-
-    .color-dot {
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(255, 255, 255, 0.38);
-      display: inline-block;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-      flex-shrink: 0;
-    }
-
-    .size-tag {
-      font-size: 10px;
-      font-weight: 800;
-      color: var(--text-white);
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-hover);
-      padding: 2px 6px;
-      border-radius: 5px;
-      line-height: 1.2;
-    }
-
-    .price-row {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      padding-top: 9px;
-      border-top: 1px solid rgba(255, 255, 255, 0.07);
-      margin-top: auto;
-    }
-
-    .current-price {
-      font-size: 15.5px;
-      font-weight: 900;
-      color: var(--yellow-primary);
-    }
-
-    .currency {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-
-    .old-price {
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--text-dim);
-      text-decoration: line-through;
-    }
-
-    .empty-box {
-      grid-column: 1 / -1;
-      background: var(--bg-elevated);
-      border: 1px dashed var(--border-hover);
-      border-radius: var(--radius-lg);
-      padding: 44px 20px;
-      text-align: center;
-    }
-
-    .empty-box h3 {
-      font-size: 16px;
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-
-    .empty-box p {
+    .phone-display-box {
       font-size: 13px;
-      color: var(--text-muted);
+      font-weight: 800;
+      color: var(--text-main);
+      background: var(--bg-subtle);
+      padding: 5px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      direction: ltr;
     }
-
-    /* ==================== النوافذ المنبثقة ==================== */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      background: rgba(0, 0, 0, 0.84);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 14px;
-    }
-
-    .modal-backdrop.open {
+    .action-btns-wrap {
       display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .btn-reveal {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 7px 13px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-reveal:hover { background: var(--primary-hover); }
+    .btn-call-now {
+      background: var(--accent-blue);
+      color: white;
+      text-decoration: none;
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-wa-now {
+      background: var(--success);
+      color: white;
+      text-decoration: none;
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    .pin-dialog {
-      width: 100%;
-      max-width: 360px;
-      background: var(--bg-glass);
-      border: 1px solid var(--border-hover);
-      border-radius: var(--radius-lg);
-      padding: 24px 20px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+    /* مصارف الدم ومصفوفة المخزون */
+    .bank-card-container {
+      border: 1.5px solid var(--accent-blue-border);
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .bank-top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+    }
+    .bank-name-text {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--text-main);
+    }
+    .bank-city-tag {
+      background: var(--accent-blue-light);
+      color: var(--accent-blue);
+      border: 1px solid var(--accent-blue-border);
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      margin-left: 6px;
     }
 
-    .dialog-header {
+    .bank-timestamp-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 8px 12px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 12px;
       margin-bottom: 12px;
     }
 
-    .dialog-title {
-      font-size: 16px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .dot-yellow {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--yellow-primary);
-      box-shadow: 0 0 10px var(--yellow-primary);
-    }
-
-    .close-btn {
-      font-size: 22px;
-      color: var(--text-muted);
-      line-height: 1;
-      padding: 4px;
-    }
-
-    .pin-field {
-      width: 100%;
-      background: #080808;
-      border: 1px solid var(--border-hover);
-      border-radius: var(--radius-md);
-      padding: 14px;
-      text-align: center;
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 6px;
-      color: var(--yellow-primary);
-      margin: 14px 0;
-    }
-
-    .pin-field:focus {
-      border-color: var(--yellow-primary);
-    }
-
-    .btn-primary {
-      width: 100%;
-      background: var(--yellow-primary);
-      color: #000000;
-      font-weight: 900;
-      font-size: 14px;
-      padding: 13px 18px;
-      border-radius: var(--radius-md);
-      transition: var(--transition);
-      text-align: center;
-    }
-
-    .btn-primary:hover {
-      background: var(--yellow-accent);
-    }
-
-    /* لوحة الإدارة */
-    .admin-dialog {
-      width: 100%;
-      max-width: 980px;
-      max-height: 92vh;
-      background: var(--bg-glass);
-      border: 1px solid var(--border-hover);
-      border-radius: var(--radius-lg);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95);
-    }
-
-    .admin-top {
-      padding: 14px 18px;
-      background: #0D0D0D;
-      border-bottom: 1px solid var(--border-subtle);
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .admin-actions-bar {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .btn-danger-outline {
-      background: rgba(255, 59, 48, 0.12);
-      color: #FF6961;
-      border: 1px solid rgba(255, 59, 48, 0.35);
-      font-size: 12px;
-      font-weight: 800;
-      padding: 8px 12px;
-      border-radius: var(--radius-sm);
-    }
-
-    .btn-subtle {
-      background: var(--bg-elevated);
-      color: var(--text-white);
-      border: 1px solid var(--border-subtle);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 8px 12px;
-      border-radius: var(--radius-sm);
-    }
-
-    .admin-body {
-      padding: 16px;
-      overflow-y: auto;
+    .inventory-matrix {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 8px;
+      margin: 12px 0;
     }
-
-    @media (min-width: 840px) {
-      .admin-body {
-        grid-template-columns: 370px 1fr;
-      }
+    @media (max-width: 760px) {
+      .inventory-matrix { grid-template-columns: repeat(4, 1fr); }
     }
-
-    .admin-form-box {
-      background: #0E0E0E;
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 15px;
-      height: fit-content;
+    .inv-cell {
+      border: 1.5px solid var(--border-color);
+      border-radius: 10px;
+      padding: 10px 4px;
+      text-align: center;
+      background: var(--bg-subtle);
     }
-
-    .form-group {
-      margin-bottom: 11px;
-    }
-
-    .form-label {
-      display: block;
-      font-size: 11.5px;
-      font-weight: 700;
-      color: var(--text-muted);
+    .inv-type {
+      font-size: 17px;
+      font-weight: 900;
+      direction: ltr;
       margin-bottom: 4px;
     }
+    .inv-status {
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+    .inv-high { background: var(--success-light); color: var(--success); }
+    .inv-low { background: var(--warning-light); color: var(--warning); }
+    .inv-crit { background: var(--primary-light); color: var(--primary); }
 
-    .form-input, .form-select {
-      width: 100%;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-sm);
-      padding: 9px 11px;
-      font-size: 13px;
-      color: var(--text-white);
+    .bank-actions-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-color);
+    }
+    .btn-maps {
+      background: #ea4335;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-fb {
+      background: #1877f2;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .form-input:focus, .form-select:focus {
-      border-color: var(--yellow-primary);
-    }
-
-    .form-row-2 {
+    /* حاسبة التوافق الذكية */
+    .compat-selector-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 8px;
+      margin: 14px 0;
     }
-
-    .toggle-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-sm);
-      padding: 10px 12px;
-      margin-bottom: 10px;
+    @media (max-width: 650px) {
+      .compat-selector-grid { grid-template-columns: repeat(4, 1fr); }
     }
-
-    .checkbox-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .checkbox-row input {
-      width: 17px;
-      height: 17px;
-      accent-color: var(--yellow-primary);
-    }
-
-    .admin-list {
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
-
-    .admin-item {
-      background: #0E0E0E;
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 10px 12px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .admin-item-info {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 0;
-      flex: 1;
-    }
-
-    .admin-thumb {
-      width: 46px;
-      height: 58px;
-      border-radius: var(--radius-sm);
-      object-fit: cover;
-      border: 1px solid var(--border-subtle);
-      flex-shrink: 0;
-    }
-
-    .admin-item-title {
-      font-size: 13px;
-      font-weight: 800;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .admin-item-meta {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 7px;
-      font-size: 11px;
-      margin-top: 3px;
-      color: var(--text-muted);
-    }
-
-    .admin-item-controls {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 5px;
-    }
-
-    .chip-btn {
-      font-size: 11px;
-      font-weight: 800;
-      padding: 6px 9px;
-      border-radius: var(--radius-sm);
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-muted);
-    }
-
-    .chip-btn.active-discount {
-      background: var(--yellow-primary);
-      color: #000000;
-      border-color: var(--yellow-primary);
-    }
-
-    .chip-btn.active-soldout {
-      background: rgba(255, 59, 48, 0.2);
-      color: #FF6961;
-      border-color: rgba(255, 59, 48, 0.45);
-    }
-
-    .chip-btn.delete {
-      color: #FF6961;
-      border-color: rgba(255, 59, 48, 0.3);
-    }
-
-    .toast-msg {
-      position: fixed;
-      bottom: 22px;
-      left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: var(--yellow-primary);
-      color: #000000;
-      font-size: 12px;
-      font-weight: 900;
-      padding: 11px 22px;
-      border-radius: var(--radius-pill);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
-      z-index: 200;
-      opacity: 0;
-      pointer-events: none;
-      transition: var(--transition);
-    }
-
-    .toast-msg.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .site-footer {
-      border-top: 1px solid var(--border-subtle);
-      background: #070707;
-      padding: 28px 16px;
+    .compat-result-box {
+      background: var(--bg-subtle);
+      border: 1.5px solid var(--border-color);
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 14px;
       text-align: center;
-      font-size: 12px;
-      color: var(--text-dim);
-      margin-top: auto;
     }
 
-    .footer-links {
-      display: flex;
+    /* النوافذ المنبثقة */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.78);
+      backdrop-filter: blur(4px);
+      display: none;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      margin: 12px 0;
-      flex-wrap: wrap;
+      z-index: 9999;
+      padding: 15px;
+    }
+    .modal-box {
+      width: 100%;
+      max-width: 650px;
+      background: var(--bg-card);
+      color: var(--text-main);
+      border-radius: 18px;
+      padding: 22px;
+      max-height: 92vh;
+      overflow-y: auto;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .admin-section-card {
+      background: var(--bg-subtle);
+      border: 1.5px solid var(--border-color);
+      padding: 14px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      text-align: right;
+    }
+    .admin-section-title {
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 6px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 900;
+      border-radius: 10px;
+      border: none;
+      background: var(--primary);
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(185, 28, 28, 0.25);
+    }
+    .btn-submit:hover { background: var(--primary-hover); }
+
+    footer.official-footer {
+      max-width: 1080px;
+      margin: 30px auto 0 auto;
+      padding: 20px 15px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    /* كشف الطباعة الخاص بالإدارة فقط */
+    #printableRosterSection { display: none; }
+    @media print {
+      body * { visibility: hidden; }
+      #printableRosterSection, #printableRosterSection * { visibility: visible; }
+      #printableRosterSection {
+        display: block !important;
+        position: absolute;
+        left: 0; top: 0;
+        width: 100%;
+        background: white;
+        color: black;
+        padding: 15px;
+      }
+      .print-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        font-size: 12px;
+      }
+      .print-table th, .print-table td {
+        border: 1px solid #000;
+        padding: 6px 8px;
+        text-align: right;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ==================== الشريط العلوي ==================== -->
-  <header class="site-header">
-    <div class="header-top">
-      <div class="header-side">
-        <button class="icon-btn" onclick="toggleSearch()" title="بحث في المتجر">⌕</button>
-        <a class="icon-btn whatsapp-btn" href="https://wa.me/218920081008" target="_blank" rel="noopener noreferrer" title="واتساب: 0920081008">
-          <span>💬</span>
-          <span class="btn-label-hide-mobile">0920081008</span>
-        </a>
-        <a class="icon-btn maps-btn" href="https://maps.app.goo.gl/9WLCsBo3bTdbHCvU7" target="_blank" rel="noopener noreferrer" title="موقع المحل على الخريطة">
-          <span>📍</span>
-          <span class="btn-label-hide-mobile">موقع المحل</span>
-        </a>
+  <!-- الشريط الحكومي العلوي (نفس التصميم الأصلي النظيف) -->
+  <div class="gov-topbar">
+    <div class="gov-topbar-inner">
+      <div class="gov-badge">
+        <span class="pulse-dot"></span>
+        <span>المنظومة الوطنية الموحدة لخدمات نقل الدم والطوارئ - ليبيا</span>
       </div>
-
-      <div class="brand-logo" onclick="selectCategory('الكل')">
-        <div class="brand-monogram">BL</div>
-        <span class="brand-title">BLANKO</span>
-        <span class="brand-subtitle">FOR MEN'S CLOTHING</span>
-      </div>
-
-      <div class="header-side">
-        <button class="icon-btn" onclick="openAdminTrigger()" title="لوحة الإدارة">🔒</button>
+      <div class="topbar-actions">
+        <button type="button" class="btn-top-util" onclick="window.toggleTheme()" id="themeToggleBtn">🌙 الوضع الليلي</button>
+        <button type="button" class="btn-top-util" onclick="window.openAdmin()">🔒 بوابة الإدارة المعتمدة</button>
       </div>
     </div>
+  </div>
 
-    <div id="searchDrawer" class="search-drawer">
-      <input
-        type="text"
-        id="searchInput"
-        class="search-input"
-        placeholder="ابحث عن قطعة، حذاء، لون، أو مقاس..."
-        oninput="renderStore()"
-      />
+  <!-- الهيدر الرئيسي (نفس التصميم الأصلي في الصورة 247) -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="brand-row">
+        <div class="brand-identity">
+          <div class="brand-emblem">🩸</div>
+          <div class="brand-text">
+            <h1>
+              <span>منصة وَرِيـد</span>
+              <span class="official-seal-tag">نظام وطني مشفر (بدون أسماء)</span>
+            </h1>
+            <p>الشبكة الرقمية الفورية لربط المتبرعين بمصارف الدم المركزية والمستشفيات</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- لوحة الإحصائيات الفورية -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-val" id="kpiTotal">7</span>
+          <span class="kpi-lbl">🩸 إجمالي المتبرعين المسجلين</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-val" id="kpiVerified">4</span>
+          <span class="kpi-lbl">✔ المتبرعون المفعلون (موثق)</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-val" id="kpiReady">6</span>
+          <span class="kpi-lbl">🟢 جاهزون للتبرع الفوري</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-val" id="kpiBanks">8</span>
+          <span class="kpi-lbl">🏥 مصارف الدم المركزية المربوطة</span>
+        </div>
+      </div>
     </div>
-
-    <!-- شريط الأقسام المحدث شاملاً الأحذية -->
-    <nav class="categories-bar">
-      <div id="categoriesBar" class="categories-scroll"></div>
-    </nav>
   </header>
 
-  <!-- ==================== الكتالوج الرئيسي ==================== -->
-  <main class="store-container">
-    <div class="section-bar">
-      <div class="section-heading">
-        <span class="heading-accent"></span>
-        <h1 id="categoryHeading">جميع القطع</h1>
-      </div>
-      <span id="itemsCounter" class="items-counter">0 قطع</span>
-    </div>
-
-    <div id="productsGrid" class="products-grid"></div>
-  </main>
-
-  <!-- ==================== نافذة رمز الـ PIN (1992657) ==================== -->
-  <div id="pinModal" class="modal-backdrop">
-    <div class="pin-dialog">
-      <div class="dialog-header">
-        <div class="dialog-title">
-          <span class="dot-yellow"></span>
-          <span>بوابة إدارة BLANKO</span>
-        </div>
-        <button class="close-btn" onclick="closePinModal()">&times;</button>
-      </div>
-      <p style="font-size: 12px; color: var(--text-muted);">
-        أدخل رمز الـ PIN السري الخاص بالإدارة لفتح لوحة التحكم وتحديث الكتالوج.
-      </p>
-      <form onsubmit="handlePinSubmit(event)">
-        <input
-          type="password"
-          id="pinField"
-          class="pin-field"
-          inputmode="numeric"
-          placeholder="•••••••"
-          required
-        />
-        <button type="submit" class="btn-primary">فتح لوحة التحكم</button>
-      </form>
+  <!-- شريط نداء الاستغاثة العاجل -->
+  <div class="sos-banner" id="publicSosBanner">
+    <div class="sos-banner-inner">
+      <span class="sos-tag">🚨 نداء طوارئ عاجل</span>
+      <span class="sos-text" id="publicSosText">مستشفى الزاوية التعليمي (قسم الحوادث): مطلوب وحدات دم فصيلة O- و AB+ بشكل عاجل جداً.</span>
+      <button type="button" class="btn-sos-action" id="publicSosBtn" onclick="window.triggerSosAction()">استجابة سريعة للنداء ⬅</button>
     </div>
   </div>
 
-  <!-- ==================== لوحة التحكم الإدارية ==================== -->
-  <div id="adminModal" class="modal-backdrop">
-    <div class="admin-dialog">
-      <div class="admin-top">
-        <div class="dialog-title">
-          <span class="dot-yellow"></span>
-          <span>لوحة تحكم BLANKO السحابية</span>
+  <div class="container">
+    
+    <!-- أزرار التنقل الـ 4 الأصلية -->
+    <input type="radio" name="main_nav" id="tab-search" class="tab-radio" checked>
+    <input type="radio" name="main_nav" id="tab-banks" class="tab-radio">
+    <input type="radio" name="main_nav" id="tab-compat" class="tab-radio">
+    <input type="radio" name="main_nav" id="tab-reg" class="tab-radio">
+
+    <div class="nav-bar">
+      <label for="tab-search" class="nav-label">🔍 البحث عن متبرعين</label>
+      <label for="tab-banks" class="nav-label">🏥 مخزون مصارف الدم</label>
+      <label for="tab-compat" class="nav-label">🧬 فحص توافق الفصائل</label>
+      <label for="tab-reg" class="nav-label">➕ تسجيل متبرع (بكود سري)</label>
+    </div>
+
+    <!-- ================= 1: محرك البحث الفوري (نفس شكل الصورة 247 تماماً) ================= -->
+    <div id="view-search" class="view-box">
+      <div class="card">
+        <div class="section-head">
+          <h2>🔍 محرك البحث الفوري عن وحدات ومتبرعي الدم</h2>
+          <span id="searchResultsCounter" style="font-size:13px; font-weight:800; color:var(--primary);"></span>
         </div>
-        <div class="admin-actions-bar">
-          <button class="btn-danger-outline" onclick="clearAllDiscounts()">إلغاء جميع التخفيضات ✕</button>
-          <button class="btn-subtle" onclick="closeAdminModal()">إغلاق</button>
+
+        <div class="blood-selector-title">
+          <span>1. اختر فصيلة الدم المطلوبة للبحث السريع:</span>
+          <button type="button" onclick="window.resetAllFilters()" style="background:none; border:none; color:var(--accent-blue); font-size:12px; font-weight:800; cursor:pointer;">إعادة ضبط البحث ↺</button>
         </div>
+        <div class="blood-pills-grid" id="bloodPillsContainer"></div>
+
+        <div class="advanced-filter-box">
+          <div class="filter-grid">
+            <div class="form-group">
+              <label>📍 تصفية حسب المدينة:</label>
+              <select id="filterCity" onchange="window.renderDonors()">
+                <option value="">كل المدن الليبية</option>
+                <option value="الزاوية">الزاوية</option>
+                <option value="صرمان">صرمان</option>
+                <option value="صبراتة">صبراتة</option>
+                <option value="زوارة">زوارة</option>
+                <option value="طرابلس">طرابلس</option>
+                <option value="مصراتة">مصراتة</option>
+                <option value="بنغازي">بنغازي</option>
+                <option value="سبها">سبها</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>🩺 الجاهزية الطبية (90 يوماً):</label>
+              <select id="filterReadiness" onchange="window.renderDonors()">
+                <option value="">الكل (متاح وفي استشفاء)</option>
+                <option value="ready" selected>🟢 المتاحون للتبرع الفوري فقط</option>
+                <option value="resting">⏳ في فترة استشفاء</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>🔢 بحث بكود المتطوع أو الهاتف:</label>
+              <input type="text" id="filterKeyword" placeholder="مثال: WRD-101 أو 091..." oninput="window.renderDonors()">
+            </div>
+
+            <div class="form-group">
+              <button type="button" class="btn-search-trigger" style="width:100%;" onclick="window.renderDonors()">
+                🔍 بحث وتحديث النتائج
+              </button>
+            </div>
+          </div>
+
+          <div class="activation-tabs">
+            <span style="font-size:12.5px; font-weight:800;">🛡️ تصفية حالة تفعيل الحسابات:</span>
+            <div class="activation-btn-group">
+              <button type="button" id="btnActAll" class="act-filter-btn active-all" onclick="window.setVerificationFilter('all')">
+                الكل (<span id="countActAll">0</span>)
+              </button>
+              <button type="button" id="btnActVerified" class="act-filter-btn" onclick="window.setVerificationFilter('verified')">
+                ✔ المتفعلون فقط (<span id="countActVerified">0</span>)
+              </button>
+              <button type="button" id="btnActUnverified" class="act-filter-btn" onclick="window.setVerificationFilter('unverified')">
+                ⏳ غير المتفعلين (<span id="countActUnverified">0</span>)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="emptyDonorsState" style="display:none; text-align:center; padding:35px 15px; color:var(--text-muted);">
+          <div style="font-size:42px; margin-bottom:8px;">🩸</div>
+          <h3 style="font-size:16px; margin-bottom:4px;">لا توجد سجلات متطابقة مع شروط البحث الحالية</h3>
+          <p style="font-size:13px;">جرب تغيير خيارات التصفية أو اختيار فصيلة دم أخرى.</p>
+        </div>
+
+        <div class="donors-grid" id="donorsListContainer"></div>
+      </div>
+    </div>
+
+    <!-- ================= 2: مخزون مصارف الدم ================= -->
+    <div id="view-banks" class="view-box">
+      <div class="card">
+        <div class="section-head">
+          <h2>🏥 مصارف الدم والمستشفيات المربوطة</h2>
+          <div style="display:flex; gap:8px;">
+            <select id="bankCityFilter" onchange="window.renderPublicBanks()" style="width:auto; padding:6px 12px; font-size:12.5px;">
+              <option value="">جميع المدن</option>
+              <option value="الزاوية">الزاوية</option>
+              <option value="صرمان">صرمان</option>
+              <option value="صبراتة">صبراتة</option>
+              <option value="طرابلس">طرابلس</option>
+              <option value="مصراتة">مصراتة</option>
+              <option value="بنغازي">بنغازي</option>
+              <option value="سبها">سبها</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="background:#fffbeb; border:1px solid #fde68a; color:#b45309; padding:12px 14px; border-radius:12px; font-size:13px; font-weight:700; margin-bottom:18px; line-height:1.7;">
+          ⚠️ <strong>تنبيه وإبراء ذمة:</strong> تتغير فصائل الدم المتوفرة في المستشفيات بشكل مستمر حسب حالات الطوارئ والعمليات. يُرجى مراجعة <strong>تاريخ آخر تحديث</strong> الموضح لكل مصرف أو التواصل المباشر مع قسم الطوارئ.
+        </div>
+
+        <div id="publicBanksContainer"></div>
+      </div>
+    </div>
+
+    <!-- ================= 3: فحص توافق الفصائل ================= -->
+    <div id="view-compat" class="view-box">
+      <div class="card">
+        <div class="section-head">
+          <h2>🧬 فحص التوافق الطبي لنقل كريات الدم</h2>
+          <span style="font-size:12px; color:var(--text-muted); font-weight:700;">المعايير الطبية المعتمدة</span>
+        </div>
+        <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;">
+          اختر <strong>فصيلة دم المريض المحتاج</strong> لمعرفة الفصائل المطابقة التي يمكنها التبرع له بأمان:
+        </p>
+
+        <div class="compat-selector-grid" id="compatButtonsGrid">
+          <button type="button" class="blood-pill-btn" data-b="O+" onclick="window.checkCompatibility('O+')"><span class="blood-pill-type">O+</span></button>
+          <button type="button" class="blood-pill-btn" data-b="O-" onclick="window.checkCompatibility('O-')"><span class="blood-pill-type">O-</span></button>
+          <button type="button" class="blood-pill-btn" data-b="A+" onclick="window.checkCompatibility('A+')"><span class="blood-pill-type">A+</span></button>
+          <button type="button" class="blood-pill-btn" data-b="A-" onclick="window.checkCompatibility('A-')"><span class="blood-pill-type">A-</span></button>
+          <button type="button" class="blood-pill-btn" data-b="B+" onclick="window.checkCompatibility('B+')"><span class="blood-pill-type">B+</span></button>
+          <button type="button" class="blood-pill-btn" data-b="B-" onclick="window.checkCompatibility('B-')"><span class="blood-pill-type">B-</span></button>
+          <button type="button" class="blood-pill-btn" data-b="AB+" onclick="window.checkCompatibility('AB+')"><span class="blood-pill-type">AB+</span></button>
+          <button type="button" class="blood-pill-btn" data-b="AB-" onclick="window.checkCompatibility('AB-')"><span class="blood-pill-type">AB-</span></button>
+        </div>
+
+        <div class="compat-result-box" id="compatResultArea"></div>
+      </div>
+    </div>
+
+    <!-- ================= 4: تسجيل متبرع (بكود سري) ================= -->
+    <div id="view-reg" class="view-box">
+      <div class="card">
+        <div class="section-head">
+          <h2>➕ تسجيل متبرع جديد (بكود سري بدون اسم)</h2>
+          <span style="font-size:12px; color:var(--success); font-weight:800;">🔒 خصوصية تامة</span>
+        </div>
+
+        <form id="regForm" onsubmit="event.preventDefault(); window.submitDonor();">
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;" class="form-group-spaced">
+            <div>
+              <label>🩸 فصيلة الدم: <span style="color:var(--primary)">*</span></label>
+              <select id="vBlood" required>
+                <option value="O+">O+</option><option value="O-">O-</option>
+                <option value="A+">A+</option><option value="A-">A-</option>
+                <option value="B+">B+</option><option value="B-">B-</option>
+                <option value="AB+">AB+</option><option value="AB-">AB-</option>
+              </select>
+            </div>
+            <div>
+              <label>📍 المدينة: <span style="color:var(--primary)">*</span></label>
+              <select id="vCity" required>
+                <option value="الزاوية" selected>الزاوية</option>
+                <option value="صرمان">صرمان</option>
+                <option value="صبراتة">صبراتة</option>
+                <option value="زوارة">زوارة</option>
+                <option value="طرابلس">طرابلس</option>
+                <option value="مصراتة">مصراتة</option>
+                <option value="بنغازي">بنغازي</option>
+                <option value="سبها">سبها</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group-spaced">
+            <label>📞 رقم الهاتف الليبي: <span style="color:var(--primary)">*</span></label>
+            <input type="tel" id="vPhone" placeholder="091XXXXXXX أو 092XXXXXXX" maxlength="10" dir="ltr" style="text-align:right;" required>
+            <span style="font-size:11.5px; color:var(--text-muted);">10 أرقام تبدأ بـ 09 (سيتم تشفيره بالنجوم في القائمة).</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;" class="form-group-spaced">
+            <div>
+              <label>🕒 الوقت المفضل للتواصل:</label>
+              <select id="vPreferredTime" required>
+                <option value="24/7" selected>🚨 طوارئ 24 ساعة</option>
+                <option value="morning">☀️ صباحاً (8:00 ص - 2:00 م)</option>
+                <option value="evening">🌆 مساءً (4:00 م - 10:00 م)</option>
+                <option value="weekend">🗓️ عطلة نهاية الأسبوع</option>
+              </select>
+            </div>
+            <div>
+              <label>🩺 حالة الجاهزية الحالية:</label>
+              <select id="vLastDonationType">
+                <option value="ready" selected>🟢 جاهز ومتاح للتبرع الفوري</option>
+                <option value="resting">⏳ تبرعت مؤخراً (في فترة راحة)</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">توليد كود المتبرع والانضمام 🩸</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- نافذة التعهد لكشف الرقم -->
+  <div id="pledgeModal" class="modal-overlay">
+    <div class="modal-box" style="border: 3px solid var(--primary); max-width:500px;">
+      <div style="font-size:40px; margin-bottom:6px;">⚖️</div>
+      <h3 style="color:var(--primary); font-size:19px; font-weight:900; margin-bottom:8px;">تعهد أخلاقي ومساءلة قانونية</h3>
+      <div style="font-size:13.5px; font-weight:700; line-height:1.8; text-align:justify; background:var(--primary-light); padding:15px; border-radius:12px; border:1px solid var(--primary-border); margin-bottom:16px;">
+        "أشهد الله أنني أطلب رقم هذا المتبرع (<strong id="pledgeDonorCodeText">WRD</strong>) <strong>لحالة إنقاذ حياة وطوارئ طبية حقيقية فقط</strong>، وأتعهد بعدم إزعاجه أو استخدام الرقم خارج غرض التبرع بالدم."
+      </div>
+      <input type="hidden" id="pledgeDonorId">
+      <button type="button" class="btn-submit" onclick="window.confirmPledge()" style="margin-bottom:8px;">أتعهد وأتحمل المسؤولية (إظهار الرقم)</button>
+      <button type="button" class="btn-submit" style="background:#64748b;" onclick="window.closePledge()">إلغاء</button>
+    </div>
+  </div>
+
+  <!-- نافذة تأكيد وتفعيل المتبرع (واتساب والرسائل القصيرة) -->
+  <div id="verifySuccessModal" class="modal-overlay">
+    <div class="modal-box" style="border: 3px solid var(--success); max-width:520px; text-align:center;">
+      <div style="font-size:45px; margin-bottom:8px;">✅</div>
+      <h3 style="color:var(--success); font-size:21px; font-weight:900; margin-bottom:6px;">تم تسجيلك في المنظومة الوطنية بنجاح!</h3>
+      <p style="font-size:13px; color:var(--text-muted); margin-bottom:14px;">كود المتبرع السري الخاص بك:</p>
+      
+      <div style="background:var(--bg-subtle); border:2px dashed var(--success); padding:12px; border-radius:12px; margin-bottom:16px;">
+        <span style="font-size:26px; font-weight:900; color:var(--primary); letter-spacing:1px;" id="modalDonorCode">WRD-0000</span>
+        <div style="font-size:12px; color:var(--text-muted); margin-top:4px;" id="modalDonorMeta">فصيلة O+ | الزاوية</div>
       </div>
 
-      <div class="admin-body">
-        <div class="admin-form-box">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-            <h3 id="formHeaderTitle" style="font-size:14px; font-weight:800; color:var(--yellow-primary);">
-              + إضافة قطعة جديدة
-            </h3>
-            <button id="cancelEditBtn" onclick="resetProductForm()" style="display:none; font-size:11px; color:var(--text-muted); text-decoration:underline;">
-              إلغاء التعديل
-            </button>
-          </div>
+      <div style="background:var(--success-light); border:1px solid var(--success-border); padding:12px 14px; border-radius:10px; margin-bottom:18px; font-size:13px; font-weight:700; color:var(--text-main); text-align:right; line-height:1.7;">
+        🛡️ <strong>خطوة التوثيق والتفعيل:</strong><br>
+        لتوثيق حسابك وظهور شارة <span style="color:var(--success); font-weight:900;">«✔ مفعل (موثق)»</span> أمام المستشفيات وأقسام الطوارئ، يرجى تأكيد رقمك للإدارة عبر أحد الخيارين:
+      </div>
 
-          <form id="productForm" onsubmit="handleSaveProduct(event)">
-            <input type="hidden" id="editId" value="" />
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:14px;">
+        <a id="btnVerifyWhatsApp" href="#" target="_blank" style="background:#25d366; color:white; padding:12px; border-radius:10px; font-size:14px; font-weight:900; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 3px 10px rgba(37,211,102,0.3);">
+          💬 إرسال تأكيد التفعيل عبر واتساب
+        </a>
+        <a id="btnVerifySMS" href="#" style="background:#0284c7; color:white; padding:12px; border-radius:10px; font-size:14px; font-weight:900; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 3px 10px rgba(2,132,199,0.3);">
+          📱 إرسال تأكيد التفعيل عبر الرسائل القصيرة (SMS)
+        </a>
+      </div>
 
-            <div class="form-group">
-              <label class="form-label">اسم القطعة أو الحذاء *</label>
-              <input type="text" id="pName" class="form-input" required placeholder="مثال: حذاء سنيكرز ستريت وير جلدي" />
-            </div>
+      <button type="button" onclick="window.closeVerifyModal()" style="background:#64748b; color:white; border:none; padding:10px; border-radius:8px; font-size:13px; font-weight:800; cursor:pointer; width:100%;">
+        المتابعة لقائمة المتبرعين (التفعيل لاحقاً) ⬅
+      </button>
+    </div>
+  </div>
 
-            <div class="form-row-2 form-group">
-              <div>
-                <label class="form-label">السعر الحالي (د.ل) *</label>
-                <input type="number" step="0.01" id="pPrice" class="form-input" required placeholder="185" />
-              </div>
-              <div>
-                <label class="form-label">القسم *</label>
-                <select id="pCategory" class="form-select" required>
-                  <option value="هوديز">هوديز</option>
-                  <option value="قمصان">قمصان</option>
-                  <option value="تيشرتات">تيشرتات</option>
-                  <option value="سراويل وشورتات">سراويل وشورتات</option>
-                  <option value="بدلات">بدلات</option>
-                  <option value="سويت شيرت / تريكو">سويت شيرت / تريكو</option>
-                  <option value="أحذية">أحذية</option>
-                  <option value="عطور">عطور</option>
-                  <option value="إكسسوارات">إكسسوارات</option>
-                  <option value="عروض خاصة">عروض خاصة</option>
-                  <option value="جاكيتات">جاكيتات</option>
-                  <option value="معاطف">معاطف</option>
-                </select>
-              </div>
-            </div>
+  <!-- ================= لوحة الإدارة المعتمدة (جميع أدوات الإكسيل والتحكم هنا فقط) ================= -->
+  <div id="adminModal" class="modal-overlay">
+    <div class="modal-box" style="max-width:760px; text-align:right;">
+      <div id="adminLoginView" style="text-align:center;">
+        <div style="font-size:38px; margin-bottom:6px;">🔐</div>
+        <h3 style="font-size:19px; font-weight:900; margin-bottom:6px;">بوابة الإدارة المعتمدة</h3>
+        <p style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px;">أدخل الرمز السري للإدارة للتحكم في المنظومة:</p>
+        <div class="form-group-spaced">
+          <input type="password" id="adminPassInput" placeholder="الرمز السري للإدارة...">
+        </div>
+        <button type="button" class="btn-submit" onclick="window.verifyAdmin()">دخول</button>
+        <button type="button" class="btn-submit" style="background:#64748b; margin-top:8px;" onclick="window.closeAdmin()">إغلاق</button>
+      </div>
 
-            <div class="form-group">
-              <label class="form-label">رابط صورة القطعة (Direct URL) *</label>
-              <input type="url" id="pImage" class="form-input" dir="ltr" required placeholder="https://i.postimg.cc/..." />
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">الألوان المتاحة (اكتب أي لون بالعربية أو الإنجليزية، افصل بينها بفاصلة)</label>
-              <input type="text" id="pColors" class="form-input" placeholder="مثال: أسود، أبيض، كحلي، بيج، رصاصي، زيتي" />
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">المقاسات المتاحة (ملابس: S إلى XXXL / أحذية: 38 إلى 45)</label>
-              <input type="text" id="pSizes" class="form-input" placeholder="مثال: 40, 41, 42, 43, 44 أو S, M, L, XL" />
-            </div>
-
-            <div class="toggle-box">
-              <label class="checkbox-row">
-                <span>تفعيل شارة التخفيض الصفراء</span>
-                <input type="checkbox" id="pDiscount" onchange="toggleOldPriceInput()" />
-              </label>
-              <div id="oldPriceGroup" style="display:none; margin-top:10px;">
-                <label class="form-label">السعر السابق (قبل التخفيض)</label>
-                <input type="number" step="0.01" id="pOldPrice" class="form-input" placeholder="240" />
-              </div>
-            </div>
-
-            <div class="toggle-box">
-              <label class="checkbox-row">
-                <span style="color:#FF6961;">القطعة نفدت كميتها (Sold Out)</span>
-                <input type="checkbox" id="pSoldOut" />
-              </label>
-            </div>
-
-            <button type="submit" id="submitProductBtn" class="btn-primary">
-              حفظ ونشر في المتجر
-            </button>
-          </form>
+      <div id="adminDashboardView" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid var(--primary); padding-bottom:10px; margin-bottom:16px;">
+          <h3 style="color:var(--primary); font-size:18px; font-weight:900;">🛠️ لوحة الإدارة والتحكم الكامل</h3>
+          <button type="button" onclick="window.closeAdmin()" style="background:#64748b; color:white; border:none; padding:6px 14px; border-radius:6px; font-size:12px; font-weight:800; cursor:pointer;">خروج ✖</button>
         </div>
 
-        <div>
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-            <span style="font-size:13px; font-weight:800;">القطع المنشورة (<span id="adminCount">0</span>)</span>
-            <span id="syncIndicator" style="font-size:11px; color:var(--yellow-primary);">● متصل ومتزامن</span>
+        <!-- 0. هاتف إدارة المنظومة لاستقبال طلبات التفعيل -->
+        <div class="admin-section-card">
+          <div class="admin-section-title">
+            <span style="color:var(--success);">📱 رقم هاتف الإدارة لاستقبال رسائل التفعيل (واتساب و SMS)</span>
           </div>
-          <div id="adminItemsList" class="admin-list"></div>
+          <div style="display:flex; gap:8px; margin-top:4px;">
+            <input type="tel" id="admContactPhone" placeholder="0926497310" dir="ltr" style="text-align:right;">
+            <button type="button" onclick="window.adminSaveContactPhone()" style="background:var(--success); color:white; border:none; padding:8px 14px; border-radius:8px; font-weight:800; cursor:pointer; white-space:nowrap;">
+              💾 حفظ الرقم
+            </button>
+          </div>
+          <div style="font-size:11.5px; color:var(--text-muted); margin-top:5px;">هذا الرقم ستصل إليه رسائل الواتساب وSMS التلقائية من المتطوعين الجدد لطلب التفعيل.</div>
         </div>
+
+        <!-- 1. التحكم في شريط نداء الطوارئ (النشرة الإخبارية) -->
+        <div class="admin-section-card">
+          <div class="admin-section-title">
+            <span style="color:var(--primary);">📢 1. التحكم في شريط نداء الطوارئ (النشرة الإخبارية)</span>
+            <label style="display:inline-flex; align-items:center; gap:6px; margin:0; cursor:pointer; font-size:12px;">
+              <input type="checkbox" id="admSosVisible" style="width:16px; height:16px;" onchange="window.adminSaveSos(false)">
+              <span>إظهار الشريط</span>
+            </label>
+          </div>
+          <div style="display:grid; grid-template-columns: 2fr 1fr; gap:8px; margin-bottom:8px;">
+            <input type="text" id="admSosText" placeholder="نص نداء الطوارئ أو الخبر...">
+            <select id="admSosBlood">
+              <option value="O-">توجيه الزر لفصيلة O-</option>
+              <option value="O+">توجيه الزر لفصيلة O+</option>
+              <option value="A+">توجيه الزر لفصيلة A+</option>
+              <option value="A-">توجيه الزر لفصيلة A-</option>
+              <option value="B+">توجيه الزر لفصيلة B+</option>
+              <option value="B-">توجيه الزر لفصيلة B-</option>
+              <option value="AB+">توجيه الزر لفصيلة AB+</option>
+              <option value="AB-">توجيه الزر لفصيلة AB-</option>
+              <option value="">إخفاء زر الاستجابة</option>
+            </select>
+          </div>
+          <button type="button" onclick="window.adminSaveSos(true)" style="background:var(--primary); color:white; border:none; padding:8px 14px; border-radius:8px; font-size:12.5px; font-weight:800; cursor:pointer; width:100%;">
+            💾 حفظ وتحديث الشريط الإخباري
+          </button>
+        </div>
+
+        <!-- 2. استيراد وتصدير كشوفات المتبرعين (Excel / CSV / PDF Paste / طباعة) -->
+        <div class="admin-section-card">
+          <div class="admin-section-title">
+            <span style="color:var(--success);">📥 2. إدخال جماعي للمتبرعين (Excel / CSV / لصق من PDF) والطباعة</span>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-bottom:8px;">
+            <div>
+              <label style="font-size:11.5px;">المدينة الافتراضية للكشف المضاف:</label>
+              <select id="bulkDefaultCity">
+                <option value="الزاوية">الزاوية</option>
+                <option value="صرمان">صرمان</option>
+                <option value="صبراتة">صبراتة</option>
+                <option value="طرابلس">طرابلس</option>
+                <option value="مصراتة">مصراتة</option>
+                <option value="بنغازي">بنغازي</option>
+                <option value="سبها">سبها</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:11.5px;">رفع ملف CSV / Excel نصي:</label>
+              <button type="button" onclick="document.getElementById('csvFileInput').click()" style="background:var(--accent-blue); color:white; border:none; padding:10px; border-radius:8px; font-size:12px; font-weight:800; cursor:pointer; width:100%;">
+                📂 اختيار ملف من الجهاز
+              </button>
+              <input type="file" id="csvFileInput" accept=".csv,.txt" style="display:none;" onchange="window.loadCsvFileToText(event)">
+            </div>
+          </div>
+
+          <textarea id="bulkPasteArea" rows="3" placeholder="أو الصق هنا مباشرة أي جدول/أرقام منسوخة من Excel أو PDF أو Word (مثال: 0912345678 O+ الزاوية)..."></textarea>
+
+          <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap;">
+            <button type="button" onclick="window.processBulkImport()" style="background:var(--success); color:white; border:none; padding:9px 14px; border-radius:8px; font-size:12.5px; font-weight:800; cursor:pointer; flex:2;">
+              ⚡ إدخال وتفعيل المتبرعين دفعة واحدة
+            </button>
+            <button type="button" onclick="window.exportCSV()" style="background:#0284c7; color:white; border:none; padding:9px 12px; border-radius:8px; font-size:12px; font-weight:800; cursor:pointer; flex:1;">
+              📊 تصدير Excel/CSV
+            </button>
+            <button type="button" onclick="window.printOfficialRoster()" style="background:#475569; color:white; border:none; padding:9px 12px; border-radius:8px; font-size:12px; font-weight:800; cursor:pointer; flex:1;">
+              🖨️ طباعة كشف ورقي
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. إدارة مصارف الدم والمستشفيات (إضافة / تعديل / إظهار أو إخفاء الأكياس) -->
+        <div class="admin-section-card">
+          <div class="admin-section-title">
+            <span style="color:var(--accent-blue);">🏥 3. إدارة المستشفيات ومصارف الدم</span>
+            <label style="display:inline-flex; align-items:center; gap:6px; margin:0; cursor:pointer; font-size:12px; color:var(--primary);">
+              <input type="checkbox" id="admGlobalShowStock" style="width:16px; height:16px;" onchange="window.toggleGlobalStockMode(this.checked)">
+              <span>تفعيل عرض فصائل الأكياس للكل</span>
+            </label>
+          </div>
+
+          <div style="margin-bottom:12px; padding-bottom:12px; border-bottom:1px dashed var(--border-color);">
+            <select id="adminSelectBankToEdit" onchange="window.adminLoadBankForm(this.value)" style="margin-bottom:8px;">
+              <option value="">-- اختر مصرف دم أو مستشفى للتعديل --</option>
+            </select>
+            <div id="adminBankEditFields" style="display:none;">
+              <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:8px; margin-bottom:8px;">
+                <div>
+                  <label style="font-size:11px;">رقم الهاتف:</label>
+                  <input type="text" id="editBPhone" placeholder="اتركه فارغاً إن لم يتأكد">
+                </div>
+                <div>
+                  <label style="font-size:11px;">اسم الأخصائي/المحدث:</label>
+                  <input type="text" id="editBUpdatedBy" placeholder="أخصائي مصرف الدم">
+                </div>
+                <div>
+                  <label style="font-size:11px;">عرض جدول الفصائل:</label>
+                  <select id="editBShowStock">
+                    <option value="true">✅ إظهار جدول الفصائل</option>
+                    <option value="false">❌ إخفاء (بطاقة عادية)</option>
+                  </select>
+                </div>
+              </div>
+              <div id="adminStockMatrixInputs" style="display:grid; grid-template-columns: repeat(4, 1fr); gap:6px; margin-bottom:8px;"></div>
+              <div style="display:flex; gap:8px;">
+                <button type="button" onclick="window.adminSaveBankStock()" style="background:var(--success); color:white; border:none; padding:8px 14px; border-radius:8px; font-weight:800; cursor:pointer; flex:2;">
+                  ✅ حفظ التعديلات وتحديث التاريخ
+                </button>
+                <button type="button" onclick="window.adminDeleteBank()" style="background:var(--danger); color:white; border:none; padding:8px 14px; border-radius:8px; font-weight:800; cursor:pointer; flex:1;">
+                  🗑️ حذف المصرف
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <label style="font-size:12px; color:var(--accent-blue);">➕ إضافة مصرف دم أو مستشفى جديد في ليبيا:</label>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-bottom:8px;">
+            <input type="text" id="newBankName" placeholder="اسم المستشفى أو المصرف *">
+            <select id="newBankCity">
+              <option value="الزاوية">الزاوية</option>
+              <option value="صرمان">صرمان</option>
+              <option value="صبراتة">صبراتة</option>
+              <option value="زوارة">زوارة</option>
+              <option value="طرابلس">طرابلس</option>
+              <option value="غريان">غريان</option>
+              <option value="مصراتة">مصراتة</option>
+              <option value="بنغازي">بنغازي</option>
+              <option value="سبها">سبها</option>
+            </select>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-bottom:8px;">
+            <input type="text" id="newBankLocation" placeholder="العنوان...">
+            <input type="text" id="newBankPhone" placeholder="رقم الهاتف (اختياري)">
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-bottom:8px;">
+            <input type="text" id="newBankMapQuery" placeholder="اسم المكان في Google Maps">
+            <input type="text" id="newBankFb" placeholder="رابط صفحة فيسبوك">
+          </div>
+          <button type="button" onclick="window.adminAddBank()" style="background:var(--accent-blue); color:white; border:none; padding:8px 14px; border-radius:8px; font-weight:800; cursor:pointer; width:100%;">
+            ➕ إضافة للمنظومة
+          </button>
+        </div>
+
+        <!-- 4. إدارة المتبرعين -->
+        <div class="admin-section-card">
+          <div class="admin-section-title">
+            <span>👥 4. التحكم في المتبرعين (تفعيل / جاهزية / حذف)</span>
+          </div>
+          <div id="adminDonorsWrapper" style="max-height:190px; overflow-y:auto;"></div>
+        </div>
+
+        <!-- 5. النسخ الاحتياطي الكامل -->
+        <div style="display:flex; gap:8px;">
+          <button type="button" onclick="window.exportBackup()" style="background:var(--accent-blue); color:white; border:none; padding:8px 12px; border-radius:8px; font-size:12px; font-weight:800; cursor:pointer; flex:1;">📥 حفظ نسخة احتياطية (JSON)</button>
+          <button type="button" onclick="document.getElementById('importFile').click()" style="background:#475569; color:white; border:none; padding:8px 12px; border-radius:8px; font-size:12px; font-weight:800; cursor:pointer; flex:1;">📤 استرجاع نسخة (JSON)</button>
+          <input type="file" id="importFile" style="display:none;" onchange="window.importBackup(event)" accept=".json">
+        </div>
+
       </div>
     </div>
   </div>
 
-  <div id="toast" class="toast-msg"></div>
+  <!-- جدول الطباعة الورقية الرسمي (للإدارة فقط عند الضغط على طباعة) -->
+  <div id="printableRosterSection">
+    <div style="text-align:center; border-bottom:2px solid #000; padding-bottom:10px; margin-bottom:12px;">
+      <h2 style="font-size:18px; font-weight:900;">منظومة «وَرِيـد» الوطنية لخدمات نقل الدم — ليبيا</h2>
+      <p style="font-size:12px;" id="printTimestampMeta"></p>
+    </div>
+    <table class="print-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>كود المتبرع</th>
+          <th>الفصيلة</th>
+          <th>المدينة</th>
+          <th>رقم الهاتف</th>
+          <th>أوقات التواصل</th>
+          <th>الحالة</th>
+        </tr>
+      </thead>
+      <tbody id="printTableBody"></tbody>
+    </table>
+  </div>
 
-  <!-- ==================== التذييل ==================== -->
-  <footer class="site-footer">
-    <div style="font-family:var(--font-serif); color:var(--text-white); letter-spacing:3px; font-weight:700; font-size:15px;">
-      BLANKO — FOR MEN'S CLOTHING
-    </div>
-    <div class="footer-links">
-      <a class="icon-btn whatsapp-btn" href="https://wa.me/218920081008" target="_blank" rel="noopener noreferrer">
-        💬 واتساب: 0920081008
-      </a>
-      <a class="icon-btn maps-btn" href="https://maps.app.goo.gl/9WLCsBo3bTdbHCvU7" target="_blank" rel="noopener noreferrer">
-        📍 موقعنا على خرائط جوجل
-      </a>
-    </div>
-    <div>جميع الحقوق محفوظة &copy; <span id="yearNow"></span></div>
+  <footer class="official-footer">
+    <div><strong>منصة وَرِيـد الوطنية لخدمات نقل ومصارف الدم</strong> — ليبيا</div>
+    <div style="margin-top:4px; font-size:11.5px;">جميع الحقوق محفوظة © 2026 • نظام الكود المشفر لحماية المتبرعين (WRD-ID)</div>
   </footer>
 
-  <!-- ==================== المنطق البرمجي ==================== -->
   <script>
-    document.getElementById('yearNow').textContent = new Date().getFullYear();
+    const STORAGE_KEY_DONORS = "wareed_donors_clean_v7";
+    const STORAGE_KEY_BANKS = "wareed_banks_clean_v7";
+    const STORAGE_KEY_SOS = "wareed_sos_clean_v7";
+    const STORAGE_KEY_ADMIN_PHONE = "wareed_admin_phone_v7";
+    const BLOOD_TYPES = ["O+", "O-", "A+", "A-", "B+", "B-", "AB+", "AB-"];
 
-    const ADMIN_PIN = '1992657';
-    const STORAGE_KEY = 'blanko_catalog_v5';
+    let initialBanksData = [{"id": "bank_zawiya_edu", "city": "الزاوية", "name": "مصرف الدم المركزي بمستشفى الزاوية التعليمي", "location": "الزاوية - مجمع الكليات والمستشفى التعليمي", "map_query": "Zawiya Teaching Hospital, Az Zawiyah, Libya", "phone": "", "fb_url": "https://www.facebook.com/search/top?q=مستشفى%20الزاوية%20التعليمي", "show_stock": true, "last_updated": "2026-10-28 08:30", "updated_by": "أخصائي مصرف الدم المناوب", "stock": {"O+": "high", "O-": "crit", "A+": "high", "A-": "low", "B+": "high", "B-": "low", "AB+": "high", "AB-": "crit"}}, {"id": "bank_zawiya_kidney", "city": "الزاوية", "name": "مستشفى الكلى بالزاوية", "location": "الزاوية - المركز التخصصي لأمراض وجراحة الكلى", "map_query": "Kidney Hospital Az Zawiyah, Libya", "phone": "", "fb_url": "https://www.facebook.com/search/top?q=مستشفى%20الكلى%20الزاوية", "show_stock": false, "last_updated": "2026-10-28 08:30", "updated_by": "وحدة نقل الدم", "stock": {"O+": "high", "O-": "low", "A+": "high", "A-": "low", "B+": "high", "B-": "low", "AB+": "high", "AB-": "low"}}, {"id": "bank_surman_general", "city": "صرمان", "name": "مستشفى صرمان العام ومصرف الدم", "location": "صرمان - الطريق الرئيسي وسط المدينة", "map_query": "Surman General Hospital, Surman, Libya", "phone": "", "fb_url": "https://www.facebook.com/search/top?q=مستشفى%20صرمان%20العام", "show_stock": false, "last_updated": "2026-10-28 08:30", "updated_by": "قسم المختبرات وبنك الدم", "stock": {"O+": "high", "O-": "crit", "A+": "high", "A-": "low", "B+": "high", "B-": "low", "AB+": "high", "AB-": "crit"}}, {"id": "bank_sabratah_oncology", "city": "صبراتة", "name": "مصرف الدم بمعهد الأورام ومستشفى صبراتة التعليمي", "location": "صبراتة - بالقرب من الطريق الساحلي", "map_query": "Sabratha Oncology Teaching Hospital, Sabratha, Libya", "phone": "", "fb_url": "https://www.facebook.com/search/top?q=المعهد%20القومي%20لعلاج%20الأورام%20بصبراتة", "show_stock": true, "last_updated": "2026-10-28 08:30", "updated_by": "أخصائي نقل الدم", "stock": {"O+": "high", "O-": "crit", "A+": "high", "A-": "low", "B+": "high", "B-": "crit", "AB+": "high", "AB-": "crit"}}, {"id": "bank_tripoli_central", "city": "طرابلس", "name": "مصرف الدم المركزي طرابلس ومستشفى شارع الزاوية", "location": "طرابلس - شارع الزاوية / طريق الشط", "map_query": "Tripoli Central Hospital, Tripoli, Libya", "phone": "021-3605001", "fb_url": "https://www.facebook.com/search/top?q=مصرف%20الدم%20المركزي%20طرابلس", "show_stock": true, "last_updated": "2026-10-28 08:00", "updated_by": "إدارة مصرف الدم", "stock": {"O+": "high", "O-": "crit", "A+": "low", "A-": "crit", "B+": "high", "B-": "low", "AB+": "high", "AB-": "low"}}, {"id": "bank_misrata_central", "city": "مصراتة", "name": "مصرف الدم المركزي مصراتة", "location": "مصراتة - المقاصبة بالقرب من معهد الأورام", "map_query": "Central Blood Bank, Misrata, Libya", "phone": "", "fb_url": "https://www.facebook.com/search/top?q=مصرف%20الدم%20المركزي%20مصراتة", "show_stock": false, "last_updated": "2026-10-28 08:00", "updated_by": "شعبة الإمداد", "stock": {"O+": "high", "O-": "low", "A+": "high", "A-": "low", "B+": "high", "B-": "low", "AB+": "high", "AB-": "crit"}}, {"id": "bank_benghazi_central", "city": "بنغازي", "name": "مصرف الدم المركزي بنغازي (الهواري)", "location": "بنغازي - منطقة الهواري", "map_query": "Central Blood Bank Benghazi, Benghazi, Libya", "phone": "", "fb_url": "https://www.facebook.com/search/top?q=مصرف%20الدم%20المركزي%20بنغازي", "show_stock": false, "last_updated": "2026-10-28 08:00", "updated_by": "المناوب الفني", "stock": {"O+": "high", "O-": "low", "A+": "high", "A-": "crit", "B+": "high", "B-": "low", "AB+": "high", "AB-": "crit"}}, {"id": "bank_sabha_central", "city": "سبها", "name": "مصرف الدم المركزي سبها", "location": "سبها - بالقرب من مركز سبها الطبي", "map_query": "Sebha Medical Center, Sabha, Libya", "phone": "", "fb_url": "https://www.facebook.com/search/top?q=مصرف%20الدم%20المركزي%20سبها", "show_stock": false, "last_updated": "2026-10-28 08:00", "updated_by": "فني بنك الدم", "stock": {"O+": "low", "O-": "crit", "A+": "low", "A-": "crit", "B+": "low", "B-": "crit", "AB+": "low", "AB-": "crit"}}];
+    let initialDonorsData = [];
 
-    // الأقسام الكاملة متضمنة قسم الأحذية
-    const CATEGORIES = [
-      'الكل',
-      'هوديز',
-      'قمصان',
-      'تيشرتات',
-      'سراويل وشورتات',
-      'بدلات',
-      'سويت شيرت / تريكو',
-      'جاكيتات',
-      'معاطف',
-      'أحذية',
-      'عطور',
-      'إكسسوارات',
-      'عروض خاصة'
-    ];
+    let currentBloodFilter = "";
+    let currentVerifyFilter = "all";
+    let adminSessionToken = sessionStorage.getItem("wareed_admin_token") || "";
 
-    const COLOR_MAP = {
-      'أسود': '#000000', 'اسود': '#000000', 'black': '#000000', 'فحمي': '#1E1E1E', 'شاركوول': '#262626', 'charcoal': '#262626',
-      'أبيض': '#FFFFFF', 'ابيض': '#FFFFFF', 'white': '#FFFFFF',
-      'أوف وايت': '#F7F7F2', 'اوف وايت': '#F7F7F2', 'offwhite': '#F7F7F2', 'off white': '#F7F7F2',
-      'سكري': '#FDFBF7', 'عاجي': '#FFFFF0', 'ivory': '#FFFFF0',
-      'بيج': '#D9C8B4', 'beige': '#D9C8B4', 'كريمي': '#FFFDD0', 'cream': '#FFFDD0',
-      'رملي': '#C2B280', 'sand': '#C2B280',
-      'رمادي': '#808080', 'رصاصي': '#808080', 'gray': '#808080', 'grey': '#808080',
-      'رمادي فاتح': '#D3D3D3', 'lightgray': '#D3D3D3', 'رمادي داكن': '#4F4F4F', 'darkgray': '#4F4F4F',
-      'فضي': '#C0C0C0', 'silver': '#C0C0C0',
-      'كحلي': '#101D36', 'كحيلي': '#101D36', 'ازرق داكن': '#101D36', 'أزرق داكن': '#101D36', 'navy': '#101D36', 'نيفي': '#101D36',
-      'أزرق': '#1E40AF', 'ازرق': '#1E40AF', 'blue': '#1E40AF',
-      'سماوي': '#38BDF8', 'لبني': '#93C5FD', 'أزرق فاتح': '#60A5FA', 'ازرق فاتح': '#60A5FA', 'skyblue': '#38BDF8', 'تيفاني': '#0ABAB5', 'tiffany': '#0ABAB5',
-      'نيلي': '#312E81', 'indigo': '#312E81', 'رويال': '#1D4ED8', 'royal': '#1D4ED8',
-      'أخضر': '#15803D', 'اخضر': '#15803D', 'green': '#15803D',
-      'زيتي': '#3A4B28', 'زتوني': '#3A4B28', 'زيتوني': '#3A4B28', 'olive': '#3A4B28', 'عسكري': '#4B5320',
-      'فستقي': '#93C572', 'pistachio': '#93C572', 'نعناعي': '#6EE7B7', 'mint': '#6EE7B7',
-      'أخضر داكن': '#064E3B', 'اخضر داكن': '#064E3B', 'darkgreen': '#064E3B',
-      'أصفر': '#FFE500', 'اصفر': '#FFE500', 'yellow': '#FFE500',
-      'خردلي': '#CA8A04', 'موطارد': '#CA8A04', 'mustard': '#CA8A04',
-      'ذهبي': '#D4AF37', 'gold': '#D4AF37',
-      'برتقالي': '#F97316', 'orange': '#F97316', 'مشمشي': '#FB923C', 'خوخي': '#FDBA74', 'peach': '#FDBA74',
-      'أحمر': '#DC2626', 'احمر': '#DC2626', 'red': '#DC2626',
-      'عنابي': '#7F1D1D', 'دم غزال': '#6B1111', 'دم الغزال': '#6B1111', 'ماروني': '#800000', 'maroon': '#800000', 'burgundy': '#800020', 'برغندي': '#800020',
-      'وردي': '#EC4899', 'بينك': '#EC4899', 'pink': '#EC4899', 'زهري': '#F472B6',
-      'فوشي': '#C026D3', 'fuchsia': '#C026D3', 'ماجنتا': '#D946EF',
-      'بني': '#5C3826', 'brown': '#5C3826', 'بني داكن': '#3B2317', 'darkbrown': '#3B2317',
-      'جملي': '#C19A6B', 'camel': '#C19A6B', 'كاكي': '#8B7355', 'خاكي': '#8B7355', 'khaki': '#8B7355',
-      'تان': '#D2B48C', 'tan': '#D2B48C', 'موكا': '#8A6E58', 'طوبي': '#B24C3D', 'brick': '#B24C3D',
-      'بنفسجي': '#7C3AED', 'purple': '#7C3AED', 'موف': '#9333EA', 'mauve': '#9333EA',
-      'أرجواني': '#6D28D9', 'ارجواني': '#6D28D9', 'لافندر': '#C4B5FD', 'lavender': '#C4B5FD',
-      'فسفوري': '#CCFF00', 'نيون': '#FFE500', 'neon': '#FFE500'
+    function getSosConfig() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY_SOS);
+        return raw ? JSON.parse(raw) : {
+          visible: true,
+          text: "مستشفى الزاوية التعليمي (قسم الحوادث): مطلوب وحدات دم فصيلة O- و AB+ بشكل عاجل جداً.",
+          blood: "O-"
+        };
+      } catch (e) {
+        return { visible: true, text: "", blood: "O-" };
+      }
+    }
+
+    function saveSosConfig(cfg) {
+      localStorage.setItem(STORAGE_KEY_SOS, JSON.stringify(cfg));
+      window.renderSosBanner();
+    }
+
+    window.renderSosBanner = function() {
+      const cfg = getSosConfig();
+      const banner = document.getElementById("publicSosBanner");
+      const textEl = document.getElementById("publicSosText");
+      const btnEl = document.getElementById("publicSosBtn");
+
+      if (!cfg.visible || !cfg.text.trim()) {
+        banner.style.display = "none";
+        return;
+      }
+      banner.style.display = "block";
+      textEl.textContent = cfg.text;
+      if (cfg.blood) {
+        btnEl.style.display = "inline-block";
+      } else {
+        btnEl.style.display = "none";
+      }
     };
 
-    const INITIAL_PRODUCTS = [
-      {
-        id: 101,
-        name: 'هودي بلانكو أوفرسايز أسود مطفي — Heavyweight',
-        price: 165,
-        old_price: 220,
-        category: 'هوديز',
-        colors: 'أسود, رمادي, أبيض',
-        sizes: 'S, M, L, XL, XXL',
-        is_discount: true,
-        is_sold_out: false,
-        image_url: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85'
-      },
-      {
-        id: 102,
-        name: 'حذاء سنيكرز ستريت وير جلد كلاسيكي — Blanko Runner',
-        price: 240,
-        old_price: 310,
-        category: 'أحذية',
-        colors: 'أبيض, أسود, رمادي, بيج',
-        sizes: '40, 41, 42, 43, 44, 45',
-        is_discount: true,
-        is_sold_out: false,
-        image_url: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=85'
-      },
-      {
-        id: 103,
-        name: 'بدلة رسمية كلاسيكية بقصة إيطالية فاخرة',
-        price: 480,
-        old_price: 590,
-        category: 'بدلات',
-        colors: 'أسود, كحلي, رمادي',
-        sizes: '48, 50, 52, 54, 56',
-        is_discount: true,
-        is_sold_out: false,
-        image_url: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=900&q=85'
-      },
-      {
-        id: 104,
-        name: 'قميص أوكسفورد كاجوال بقصة مريحة',
-        price: 135,
-        old_price: null,
-        category: 'قمصان',
-        colors: 'أبيض, كحلي, بيج',
-        sizes: 'M, L, XL, XXL',
-        is_discount: false,
-        is_sold_out: false,
-        image_url: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=900&q=85'
-      },
-      {
-        id: 105,
-        name: 'تيشرت ستريت وير قطن فاخر — Blanko Edition',
-        price: 95,
-        old_price: 130,
-        category: 'تيشرتات',
-        colors: 'أسود, أبيض, أصفر',
-        sizes: 'S, M, L, XL, XXL, XXXL',
-        is_discount: true,
-        is_sold_out: false,
-        image_url: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=900&q=85'
-      },
-      {
-        id: 106,
-        name: 'سروال كارجو تكتيكي أسود بقصة عصرية',
-        price: 175,
-        old_price: null,
-        category: 'سراويل وشورتات',
-        colors: 'أسود, زيتي, بيج',
-        sizes: '30, 32, 34, 36, 38',
-        is_discount: false,
-        is_sold_out: false,
-        image_url: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=85'
-      },
-      {
-        id: 107,
-        name: 'عطر رجالي فاخر — Blanko Noir Oud 100ml',
-        price: 210,
-        old_price: 260,
-        category: 'عطور',
-        colors: 'أسود, ذهبي',
-        sizes: '100ml',
-        is_discount: true,
-        is_sold_out: true,
-        image_url: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=85'
-      }
-    ];
+    window.triggerSosAction = function() {
+      const cfg = getSosConfig();
+      window.quickFilterBlood(cfg.blood || "O-");
+    };
 
-    let products = [];
-    let currentCategory = 'الكل';
-    let isAdminUnlocked = sessionStorage.getItem('blanko_unlocked') === 'true';
-
-    function updateSyncStatus(text, color) {
-      const el = document.getElementById('syncIndicator');
-      if (el) {
-        el.textContent = text;
-        el.style.color = color || 'var(--yellow-primary)';
+    function getDonors() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY_DONORS);
+        if (!raw) return initialDonorsData;
+        return JSON.parse(raw);
+      } catch (e) {
+        return initialDonorsData;
       }
     }
 
-    async function initStore() {
-      // 1. تحميل سريع من الذاكرة المحلية لتفادي شاشة فارغة
-      const cached = localStorage.getItem(STORAGE_KEY);
-      if (cached) {
-        try { products = JSON.parse(cached); } catch (_) { products = [...INITIAL_PRODUCTS]; }
-      } else {
-        products = [...INITIAL_PRODUCTS];
-      }
+    function saveDonors(list) {
+      localStorage.setItem(STORAGE_KEY_DONORS, JSON.stringify(list));
+      window.renderDonors();
+    }
 
-      renderCategories();
-      renderStore();
-
-      // 2. المزامنة المباشرة مع قاعدة البيانات السحابية Neon
+    // جلب المتبرعين الحقيقيين من قاعدة بيانات Neon عند فتح المنصة
+    window.syncDonorsFromServer = async function() {
       try {
-        updateSyncStatus('⟳ جاري الاتصال بالسحابة...', '#38BDF8');
-        const res = await fetch('/api/products?t=' + Date.now());
-        if (res.ok) {
-          const remoteProducts = await res.json();
-          if (Array.isArray(remoteProducts)) {
-            if (remoteProducts.length > 0) {
-              // قاعدة البيانات تحتوي منتجات: اعتمدها فوراً
-              products = remoteProducts;
-              localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
-              updateSyncStatus('● متصل ومتزامن مع Neon ✓', '#25D366');
-            } else {
-              // قاعدة البيانات فارغة تماماً: نرفع القطع الافتراضية إليها تلقائياً
-              updateSyncStatus('⟳ جاري تهيئة قاعدة البيانات...', '#FACC15');
-              seedDatabase();
-            }
+        const res = await fetch('/api/donors');
+        const data = await res.json();
+        if (res.ok && data.success && Array.isArray(data.donors)) {
+          saveDonors(data.donors);
+          if (document.getElementById("adminDashboardView").style.display === "block") {
+            window.renderAdminDonors();
           }
-          renderStore();
-          if (document.getElementById('adminModal').classList.contains('open')) {
-            renderAdminItems();
-          }
-        } else {
-          updateSyncStatus('⚠ تعذر جلب البيانات من السحابة', '#FF6961');
         }
       } catch (err) {
-        console.error('Fetch error:', err);
-        updateSyncStatus('⚠ وضع عدم الاتصال (محلي فقط)', '#FF6961');
+        console.warn("تعذر الاتصال بالسيرفر، يتم عرض البيانات المحفوظة مؤقتاً.");
       }
-    }
+    };
 
-    // رفع المنتجات الافتراضية لقاعدة بيانات Neon عند أول تشغيل
-    async function seedDatabase() {
+    function getBanks() {
       try {
-        for (const item of INITIAL_PRODUCTS) {
-          await fetch('/api/products', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'x-admin-pin': ADMIN_PIN
-            },
-            body: JSON.stringify({ ...item, admin_pin: ADMIN_PIN, pin: ADMIN_PIN })
-          });
+        const raw = localStorage.getItem(STORAGE_KEY_BANKS);
+        if (!raw) {
+          localStorage.setItem(STORAGE_KEY_BANKS, JSON.stringify(initialBanksData));
+          return initialBanksData;
         }
-        // إعادة الجلب بعد التهيئة
-        const res = await fetch('/api/products?t=' + Date.now());
-        if (res.ok) {
-          const seeded = await res.json();
-          if (Array.isArray(seeded) && seeded.length > 0) {
-            products = seeded;
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
-            renderStore();
-            updateSyncStatus('● تم حفظ الكتالوج في Neon بنجاح ✓', '#25D366');
-          }
-        }
+        return JSON.parse(raw);
       } catch (e) {
-        console.error('Seed error:', e);
+        return initialBanksData;
       }
     }
 
-    function saveLocalAndRefresh() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
-      renderStore();
-      renderAdminItems();
+    function saveBanks(list) {
+      localStorage.setItem(STORAGE_KEY_BANKS, JSON.stringify(list));
+      window.renderPublicBanks();
+      document.getElementById("kpiBanks").textContent = list.length;
     }
 
-    function renderCategories() {
-      const bar = document.getElementById('categoriesBar');
-      bar.innerHTML = CATEGORIES.map(cat => `
-        <button
-          class="cat-pill ${cat === currentCategory ? 'active' : ''}"
-          onclick="selectCategory('${cat}')"
-        >
-          ${cat === 'عروض خاصة' ? '⚡ عروض خاصة' : cat}
-        </button>
-      `).join('');
+    function calculateReadiness(lastDateStr) {
+      if (!lastDateStr) return { isReady: true, text: "🟢 متاح للتبرع الفوري" };
+      const last = new Date(lastDateStr);
+      const now = new Date();
+      const diffDays = Math.floor((now - last) / (1000 * 60 * 60 * 24));
+      if (diffDays >= 90) return { isReady: true, text: "🟢 متاح للتبرع الفوري" };
+      const rem = 90 - diffDays;
+      return { isReady: false, text: "⏳ في فترة استشفاء (" + rem + " يوم)" };
     }
 
-    function selectCategory(cat) {
-      currentCategory = cat;
-      document.getElementById('categoryHeading').textContent =
-        cat === 'الكل' ? 'جميع القطع' : `قسم ${cat}`;
-      renderCategories();
-      renderStore();
+    function formatTimeLabel(val) {
+      if (val === "morning") return "☀️ صباحاً (8ص - 2م)";
+      if (val === "evening") return "🌆 مساءً (4م - 10م)";
+      if (val === "weekend") return "🗓️ عطلة الأسبوع";
+      return "🚨 طوارئ 24 ساعة";
     }
 
-    function toggleSearch() {
-      const drawer = document.getElementById('searchDrawer');
-      drawer.classList.toggle('open');
-      if (drawer.classList.contains('open')) {
-        document.getElementById('searchInput').focus();
-      }
+    function maskPhone(p) {
+      if (!p || p.length < 8) return "09X****XXX";
+      return p.substring(0, 3) + "****" + p.substring(7);
     }
 
-    function buildColorDots(colorsStr) {
-      if (!colorsStr) return '';
-      const list = String(colorsStr).split(/[,،-]/).map(s => s.trim()).filter(Boolean);
-      if (list.length === 0) return '';
+    function renderBloodPills(allDonors) {
+      const box = document.getElementById("bloodPillsContainer");
+      const counts = {};
+      BLOOD_TYPES.forEach(t => counts[t] = 0);
+      allDonors.forEach(d => { if (counts[d.blood] !== undefined) counts[d.blood]++; });
 
-      return list.map(name => {
-        const key = name.toLowerCase();
-        let cssColor = COLOR_MAP[key];
+      let html = '<button type="button" class="blood-pill-btn ' + (currentBloodFilter === '' ? 'active' : '') + '" onclick="window.selectBloodPill(\'\')">' +
+        '<span class="blood-pill-type">الكل</span>' +
+        '<span class="blood-pill-count">' + allDonors.length + ' متبرع</span>' +
+        '</button>';
 
-        if (!cssColor) {
-          if (name.startsWith('#') || name.startsWith('rgb')) {
-            cssColor = name;
-          } else {
-            cssColor = name;
-          }
+      BLOOD_TYPES.forEach(type => {
+        const isActive = currentBloodFilter === type ? "active" : "";
+        html += '<button type="button" class="blood-pill-btn ' + isActive + '" onclick="window.selectBloodPill(\'' + type + '\')">' +
+          '<span class="blood-pill-type">' + type + '</span>' +
+          '<span class="blood-pill-count">' + counts[type] + ' مسجل</span>' +
+          '</button>';
+      });
+      box.innerHTML = html;
+    }
+
+    window.selectBloodPill = function(type) {
+      currentBloodFilter = type;
+      window.renderDonors();
+    };
+
+    window.quickFilterBlood = function(type) {
+      document.getElementById("tab-search").checked = true;
+      currentBloodFilter = type;
+      document.getElementById("filterReadiness").value = "";
+      window.renderDonors();
+    };
+
+    window.setVerificationFilter = function(mode) {
+      currentVerifyFilter = mode;
+      document.getElementById("btnActAll").className = "act-filter-btn" + (mode === "all" ? " active-all" : "");
+      document.getElementById("btnActVerified").className = "act-filter-btn" + (mode === "verified" ? " active-verified" : "");
+      document.getElementById("btnActUnverified").className = "act-filter-btn" + (mode === "unverified" ? " active-unverified" : "");
+      window.renderDonors();
+    };
+
+    window.resetAllFilters = function() {
+      currentBloodFilter = "";
+      currentVerifyFilter = "all";
+      document.getElementById("filterCity").value = "";
+      document.getElementById("filterReadiness").value = "";
+      document.getElementById("filterKeyword").value = "";
+      window.setVerificationFilter("all");
+    };
+
+    window.getFilteredDonorsList = function() {
+      const list = getDonors();
+      const cityVal = document.getElementById("filterCity").value;
+      const readVal = document.getElementById("filterReadiness").value;
+      const kwVal = document.getElementById("filterKeyword").value.trim().toLowerCase();
+
+      return list.filter(d => {
+        const r = calculateReadiness(d.lastDonationDate);
+        const matchBlood = !currentBloodFilter || d.blood === currentBloodFilter;
+        const matchCity = !cityVal || d.city === cityVal;
+        let matchReadiness = true;
+        if (readVal === "ready") matchReadiness = r.isReady;
+        if (readVal === "resting") matchReadiness = !r.isReady;
+        let matchVerify = true;
+        if (currentVerifyFilter === "verified") matchVerify = d.isVerified === true;
+        if (currentVerifyFilter === "unverified") matchVerify = d.isVerified === false;
+        let matchKw = true;
+        if (kwVal) {
+          matchKw = (d.code && d.code.toLowerCase().includes(kwVal)) ||
+                    (d.phone && d.phone.includes(kwVal)) ||
+                    (d.city && d.city.includes(kwVal));
         }
+        return matchBlood && matchCity && matchReadiness && matchVerify && matchKw;
+      });
+    };
 
-        return `<span class="color-dot" style="background-color: ${safeAttr(cssColor)};" title="${safeAttr(name)}"></span>`;
-      }).join('');
-    }
+    window.renderDonors = function() {
+      const list = getDonors();
+      renderBloodPills(list);
 
-    function buildSizeTags(sizesStr) {
-      if (!sizesStr) return '';
-      const list = String(sizesStr).split(/[,،-]/).map(s => s.trim()).filter(Boolean);
-      if (list.length === 0) return '';
-      return list.map(sz => `<span class="size-tag">${safeAttr(sz)}</span>`).join('');
-    }
+      let totalVerified = 0;
+      let totalUnverified = 0;
+      let totalReady = 0;
 
-    function renderStore() {
-      const grid = document.getElementById('productsGrid');
-      const query = (document.getElementById('searchInput')?.value || '').trim().toLowerCase();
-
-      const filtered = products.filter(item => {
-        const matchesQuery = !query ||
-          (item.name && item.name.toLowerCase().includes(query)) ||
-          (item.category && item.category.toLowerCase().includes(query)) ||
-          (item.colors && item.colors.toLowerCase().includes(query)) ||
-          (item.sizes && item.sizes.toLowerCase().includes(query));
-
-        if (!matchesQuery) return false;
-        if (currentCategory === 'الكل') return true;
-        if (currentCategory === 'عروض خاصة') return Boolean(item.is_discount) || item.category === 'عروض خاصة';
-        return item.category === currentCategory;
+      list.forEach(d => {
+        if (d.isVerified) totalVerified++;
+        else totalUnverified++;
+        if (calculateReadiness(d.lastDonationDate).isReady) totalReady++;
       });
 
-      document.getElementById('itemsCounter').textContent = `${filtered.length} قطع`;
+      document.getElementById("kpiTotal").textContent = list.length;
+      document.getElementById("kpiVerified").textContent = totalVerified;
+      document.getElementById("kpiReady").textContent = totalReady;
+
+      document.getElementById("countActAll").textContent = list.length;
+      document.getElementById("countActVerified").textContent = totalVerified;
+      document.getElementById("countActUnverified").textContent = totalUnverified;
+
+      const filtered = window.getFilteredDonorsList();
+      document.getElementById("searchResultsCounter").textContent = "إجمالي النتائج المطابقة: " + filtered.length + " متبرع";
+
+      const container = document.getElementById("donorsListContainer");
+      const emptyBox = document.getElementById("emptyDonorsState");
 
       if (filtered.length === 0) {
-        grid.innerHTML = `
-          <div class="empty-box">
-            <h3>لا توجد قطع في هذا القسم حالياً</h3>
-            <p>تصفح الأقسام الأخرى أو أضف قطعاً جديدة من لوحة التحكم.</p>
-          </div>
-        `;
+        container.innerHTML = "";
+        emptyBox.style.display = "block";
         return;
       }
 
-      grid.innerHTML = filtered.map(item => {
-        const price = Number(item.price) || 0;
-        const oldPrice = item.old_price ? Number(item.old_price) : null;
-        const isDisc = Boolean(item.is_discount);
-        const isSoldOut = Boolean(item.is_sold_out);
+      emptyBox.style.display = "none";
+      container.innerHTML = filtered.map(d => {
+        const r = calculateReadiness(d.lastDonationDate);
+        const verBadge = d.isVerified
+          ? '<span class="badge-verified">✔ مفعل (موثق)</span>'
+          : '<span class="badge-unverified">⏳ غير مفعل</span>';
+        const rBadge = r.isReady
+          ? '<span class="tag-status-ready">' + r.text + '</span>'
+          : '<span class="tag-status-rest">' + r.text + '</span>';
 
-        let badgeLabel = 'عرض خاص';
-        if (isDisc && oldPrice && oldPrice > price) {
-          const pct = Math.round(((oldPrice - price) / oldPrice) * 100);
-          badgeLabel = `خصم ${pct}%`;
-        }
+        return '<div class="donor-card ' + (d.isVerified ? 'is-verified-card' : 'is-unverified-card') + '" id="card-' + d.id + '">' +
+          '<div class="donor-card-top">' +
+            '<div class="donor-meta">' +
+              '<div class="donor-code-row">' +
+                '<span class="donor-code-badge">متبرع #' + d.code + '</span>' +
+                verBadge +
+              '</div>' +
+              '<div class="donor-details-list">' +
+                '<span>📍 المدينة: ' + d.city + '</span>' +
+              '</div>' +
+              '<div class="donor-tags-row">' +
+                rBadge +
+                '<span class="tag-time">' + formatTimeLabel(d.preferredTime) + '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="blood-circle">' +
+              d.blood +
+              '<span>فصيلة</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="donor-card-footer">' +
+            '<div class="phone-display-box" id="phone-box-' + d.id + '">' +
+              '📞 ' + maskPhone(d.phone) +
+            '</div>' +
+            '<div class="action-btns-wrap" id="actions-' + d.id + '">' +
+              '<button type="button" class="btn-reveal" onclick="window.openPledge(\'' + d.id + '\')">⚠️ كشف الرقم للطوارئ</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      }).join("");
+    };
 
-        const dotsHtml = buildColorDots(item.colors);
-        const sizesHtml = buildSizeTags(item.sizes);
+    window.renderPublicBanks = function() {
+      const banks = getBanks();
+      const cityFilter = document.getElementById("bankCityFilter").value;
+      const container = document.getElementById("publicBanksContainer");
+      document.getElementById("kpiBanks").textContent = banks.length;
 
-        return `
-          <article class="product-card ${isSoldOut ? 'sold-out-card' : ''}">
-            <div class="card-media">
-              <img
-                class="card-img"
-                src="${safeAttr(item.image_url)}"
-                alt="${safeAttr(item.name)}"
-                loading="lazy"
-                onerror="this.src='https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80'"
-              />
-              ${isDisc && !isSoldOut ? `<span class="discount-badge">${badgeLabel}</span>` : ''}
-              ${isSoldOut ? `
-                <div class="soldout-overlay">
-                  <span class="soldout-pill">نفدت الكمية</span>
-                </div>
-              ` : ''}
-              <span class="category-chip">${safeAttr(item.category)}</span>
-            </div>
+      const filtered = banks.filter(b => !cityFilter || b.city === cityFilter);
 
-            <div class="card-body">
-              <h2 class="product-title">${safeAttr(item.name)}</h2>
-
-              ${(dotsHtml || sizesHtml) ? `
-                <div class="specs-box">
-                  ${dotsHtml ? `<div class="specs-row"><span class="specs-label">الألوان:</span>${dotsHtml}</div>` : ''}
-                  ${sizesHtml ? `<div class="specs-row"><span class="specs-label">المقاس:</span>${sizesHtml}</div>` : ''}
-                </div>
-              ` : ''}
-
-              <div class="price-row">
-                <span class="current-price">${price} <span class="currency">د.ل</span></span>
-                ${isDisc && oldPrice ? `<span class="old-price">${oldPrice} د.ل</span>` : ''}
-              </div>
-            </div>
-          </article>
-        `;
-      }).join('');
-    }
-
-    function openAdminTrigger() {
-      if (isAdminUnlocked) {
-        openAdminModal();
-      } else {
-        document.getElementById('pinField').value = '';
-        document.getElementById('pinModal').classList.add('open');
-        setTimeout(() => document.getElementById('pinField').focus(), 80);
-      }
-    }
-
-    function closePinModal() {
-      document.getElementById('pinModal').classList.remove('open');
-    }
-
-    function handlePinSubmit(e) {
-      e.preventDefault();
-      const entered = document.getElementById('pinField').value.trim();
-      if (entered === ADMIN_PIN) {
-        isAdminUnlocked = true;
-        sessionStorage.setItem('blanko_unlocked', 'true');
-        closePinModal();
-        openAdminModal();
-        showToast('مرحباً بك في لوحة تحكم BLANKO');
-      } else {
-        showToast('رمز الـ PIN غير صحيح!');
-      }
-    }
-
-    function openAdminModal() {
-      renderAdminItems();
-      document.getElementById('adminModal').classList.add('open');
-    }
-
-    function closeAdminModal() {
-      document.getElementById('adminModal').classList.remove('open');
-      resetProductForm();
-    }
-
-    function toggleOldPriceInput() {
-      const checked = document.getElementById('pDiscount').checked;
-      document.getElementById('oldPriceGroup').style.display = checked ? 'block' : 'none';
-    }
-
-    async function handleSaveProduct(e) {
-      e.preventDefault();
-      const editId = document.getElementById('editId').value;
-      const submitBtn = document.getElementById('submitProductBtn');
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'جاري الحفظ في السحابة...';
-      submitBtn.disabled = true;
-
-      const payload = {
-        id: editId ? Number(editId) : Date.now(),
-        name: document.getElementById('pName').value.trim(),
-        price: Number(document.getElementById('pPrice').value),
-        category: document.getElementById('pCategory').value,
-        image_url: document.getElementById('pImage').value.trim(),
-        colors: document.getElementById('pColors').value.trim(),
-        sizes: document.getElementById('pSizes').value.trim(),
-        is_discount: document.getElementById('pDiscount').checked,
-        old_price: document.getElementById('pOldPrice').value
-          ? Number(document.getElementById('pOldPrice').value)
-          : null,
-        is_sold_out: document.getElementById('pSoldOut').checked,
-        admin_pin: ADMIN_PIN,
-        pin: ADMIN_PIN
+      const labels = {
+        "high": { text: "متوفر", cls: "inv-high" },
+        "low": { text: "محدود", cls: "inv-low" },
+        "crit": { text: "نقص حاد!", cls: "inv-crit" }
       };
 
+      container.innerHTML = filtered.map(b => {
+        let stockSectionHtml = "";
+        if (b.show_stock !== false) {
+          const matrixHtml = BLOOD_TYPES.map(type => {
+            const st = (b.stock && b.stock[type]) ? b.stock[type] : "high";
+            const info = labels[st] || labels["high"];
+            return '<div class="inv-cell">' +
+              '<div class="inv-type">' + type + '</div>' +
+              '<span class="inv-status ' + info.cls + '">' + info.text + '</span>' +
+            '</div>';
+          }).join("");
+
+          stockSectionHtml = '<div class="bank-timestamp-bar">' +
+            '<div>🕒 آخر تحديث لفصائل الدم: <strong style="color:var(--primary);">' + (b.last_updated || "محدث") + '</strong> (' + (b.updated_by || "أخصائي المصرف") + ')</div>' +
+            '<div style="color:var(--text-muted); font-weight:700;">⚠️ قد يتغير المخزون لحظياً</div>' +
+          '</div>' +
+          '<div class="inventory-matrix">' + matrixHtml + '</div>';
+        }
+
+        const mapsQuery = encodeURIComponent(b.map_query || (b.name + " " + b.city + " ليبيا"));
+        const mapsUrl = "https://www.google.com/maps/search/?api=1&query=" + mapsQuery;
+
+        let phoneBtnHtml = "";
+        if (b.phone && b.phone.trim() !== "") {
+          phoneBtnHtml = '<a href="tel:' + b.phone + '" class="btn-call-now">📞 اتصال (' + b.phone + ')</a>';
+        }
+
+        let fbBtnHtml = "";
+        if (b.fb_url && b.fb_url.trim() !== "") {
+          fbBtnHtml = '<a href="' + b.fb_url + '" target="_blank" class="btn-fb">🌐 صفحة فيسبوك</a>';
+        }
+
+        return '<div class="bank-card-container">' +
+          '<div class="bank-top-header">' +
+            '<div>' +
+              '<div class="bank-name-text">' +
+                '<span class="bank-city-tag">' + b.city + '</span>' +
+                b.name +
+              '</div>' +
+              '<div style="font-size:13px; color:var(--text-muted); margin-top:4px;">📍 ' + (b.location || b.city) + '</div>' +
+            '</div>' +
+          '</div>' +
+          stockSectionHtml +
+          '<div class="bank-actions-toolbar">' +
+            '<div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">' +
+              phoneBtnHtml +
+              '<a href="' + mapsUrl + '" target="_blank" class="btn-maps">🗺️ الموقع على Google Maps</a>' +
+              fbBtnHtml +
+            '</div>' +
+            '<span style="font-size:12px; color:var(--text-muted); font-weight:700;">طوارئ 24 ساعة</span>' +
+          '</div>' +
+        '</div>';
+      }).join("");
+    };
+
+    window.checkCompatibility = function(patientBlood) {
+      const rules = {
+        "O-": ["O-"], "O+": ["O+", "O-"], "A-": ["A-", "O-"], "A+": ["A+", "A-", "O+", "O-"],
+        "B-": ["B-", "O-"], "B+": ["B+", "B-", "O+", "O-"], "AB-": ["AB-", "A-", "B-", "O-"],
+        "AB+": ["AB+", "AB-", "A+", "A-", "B+", "B-", "O+", "O-"]
+      };
+      const btns = document.querySelectorAll("#compatButtonsGrid .blood-pill-btn");
+      btns.forEach(btn => {
+        if (btn.getAttribute("data-b") === patientBlood) btn.classList.add("active");
+        else btn.classList.remove("active");
+      });
+
+      const allowed = rules[patientBlood] || [];
+      const box = document.getElementById("compatResultArea");
+      const badges = allowed.map(b =>
+        '<button type="button" onclick="window.quickFilterBlood(\'' + b + '\')" style="background:var(--primary); color:white; border:none; padding:10px 18px; border-radius:10px; font-size:16px; font-weight:900; cursor:pointer; margin:4px; direction:ltr;">' +
+          b + ' 🔍' +
+        '</button>'
+      ).join("");
+
+      box.innerHTML = '<div style="font-size:15px; font-weight:800; margin-bottom:8px;">' +
+        'المريض فصيلة (<strong style="color:var(--primary); font-size:19px;" dir="ltr">' + patientBlood + '</strong>) يستقبل كريات الدم بأمان من الفصائل التالية:' +
+        '</div>' +
+        '<div style="margin:10px 0;">' + badges + '</div>' +
+        '<div style="font-size:12px; color:var(--text-muted);">اضغط على أي فصيلة بالأعلى للانتقال المباشر إلى المتبرعين المتاحين بها.</div>';
+    };
+
+    // تسجيل المتبرع مباشرة في قاعدة بيانات Neon مع منع تكرار الأرقام
+    window.submitDonor = async function() {
+      const rawPhone = document.getElementById("vPhone").value.trim();
+      const arDigits = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+      const phone = rawPhone.replace(/[٠-٩]/g, d => arDigits.indexOf(d)).replace(/\D/g, "");
+      const blood = document.getElementById("vBlood").value;
+      const city = document.getElementById("vCity").value;
+      const preferredTime = document.getElementById("vPreferredTime").value;
+      const statusType = document.getElementById("vLastDonationType").value;
+
+      if (!/^09\d{8}$/.test(phone)) {
+        alert("خطأ: يرجى إدخال رقم هاتف ليبي مكون من 10 أرقام ويبدأ بـ 09.");
+        return;
+      }
+
+      const lastDate = (statusType === "resting") ? new Date().toISOString().split("T")[0] : "";
+      const submitBtn = document.querySelector("#regForm .btn-submit");
+      const origBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "⏳ جاري الحفظ في المنظومة الوطنية...";
+
       try {
-        const res = await fetch('/api/products', {
-          method: editId ? 'PUT' : 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'x-admin-pin': ADMIN_PIN
-          },
-          body: JSON.stringify(payload)
+        const res = await fetch('/api/donors', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            blood: blood,
+            city: city,
+            phone: phone,
+            preferredTime: preferredTime,
+            lastDonationDate: lastDate
+          })
         });
 
-        if (res.ok) {
-          const savedData = await res.json().catch(() => null);
-          const finalItem = (savedData && savedData.id) ? savedData : payload;
+        const data = await res.json();
 
-          if (editId) {
-            products = products.map(p => p.id === Number(editId) ? finalItem : p);
-          } else {
-            products.unshift(finalItem);
-          }
+        if (!res.ok || !data.success) {
+          alert(data.message || "تنبيه: هذا الرقم مسجل مسبقاً في المنظومة!");
+          submitBtn.disabled = false;
+          submitBtn.textContent = origBtnText;
+          return;
+        }
 
-          saveLocalAndRefresh();
-          resetProductForm();
-          showToast(editId ? 'تم تحديث القطعة وحفظها سحابياً ✓' : 'تم نشر القطعة وحفظها سحابياً ✓');
-          updateSyncStatus('● متصل ومتزامن مع Neon ✓', '#25D366');
+        const list = getDonors();
+        list.unshift(data.donor);
+        saveDonors(list);
+
+        document.getElementById("regForm").reset();
+        window.openVerifyModal(data.donor);
+      } catch (err) {
+        alert("تعذر الاتصال بالسيرفر، يرجى التحقق من اتصال الإنترنت والمحاولة مجدداً.");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = origBtnText;
+      }
+    };
+
+
+    function getAdminContactPhone() {
+      return localStorage.getItem(STORAGE_KEY_ADMIN_PHONE) || "0926497310";
+    }
+
+    window.adminSaveContactPhone = function() {
+      const p = document.getElementById("admContactPhone").value.trim();
+      if (!p) {
+        alert("يرجى إدخال رقم هاتف صحيح.");
+        return;
+      }
+      localStorage.setItem(STORAGE_KEY_ADMIN_PHONE, p);
+      alert("تم حفظ رقم هاتف الإدارة لاستقبال رسائل التفعيل بنجاح!");
+    };
+
+    window.openVerifyModal = function(donor) {
+      document.getElementById("modalDonorCode").textContent = donor.code;
+      document.getElementById("modalDonorMeta").textContent = "فصيلة " + donor.blood + " | " + donor.city;
+
+      const adminRaw = getAdminContactPhone();
+      const arDigits = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+      let cleanAdmin = adminRaw.replace(/[٠-٩]/g, d => arDigits.indexOf(d)).replace(/\D/g, "");
+      if (cleanAdmin.startsWith("0")) cleanAdmin = cleanAdmin.substring(1);
+      if (!cleanAdmin.startsWith("218")) cleanAdmin = "218" + cleanAdmin;
+
+      const msg = "السلام عليكم ورحمة الله، أود تأكيد وتفعيل حسابي كمتبرع في منصة وريد الوطنية.\n" +
+                  "كود المتبرع: " + donor.code + "\n" +
+                  "فصيلة الدم: " + donor.blood + "\n" +
+                  "المدينة: " + donor.city + "\n" +
+                  "رقم الهاتف: " + donor.phone;
+
+      const encodedMsg = encodeURIComponent(msg);
+
+      // رابط واتساب المباشر
+      document.getElementById("btnVerifyWhatsApp").href = "https://wa.me/" + cleanAdmin + "?text=" + encodedMsg;
+
+      // رابط الرسائل القصيرة SMS
+      document.getElementById("btnVerifySMS").href = "sms:+" + cleanAdmin + "?body=" + encodedMsg;
+
+      document.getElementById("verifySuccessModal").style.display = "flex";
+    };
+
+    window.closeVerifyModal = function() {
+      document.getElementById("verifySuccessModal").style.display = "none";
+      document.getElementById("tab-search").checked = true;
+    };
+
+    window.openPledge = function(donorId) {
+      const donor = getDonors().find(d => d.id === donorId);
+      if (!donor) return;
+      document.getElementById("pledgeDonorId").value = donorId;
+      document.getElementById("pledgeDonorCodeText").textContent = donor.code;
+      document.getElementById("pledgeModal").style.display = "flex";
+    };
+
+    window.closePledge = function() {
+      document.getElementById("pledgeModal").style.display = "none";
+    };
+
+    window.confirmPledge = function() {
+      const id = document.getElementById("pledgeDonorId").value;
+      const donor = getDonors().find(d => d.id === id);
+      if (donor) {
+        const phoneBox = document.getElementById("phone-box-" + id);
+        const actionsBox = document.getElementById("actions-" + id);
+        if (phoneBox && actionsBox) {
+          phoneBox.textContent = "📞 " + donor.phone;
+          phoneBox.style.background = "var(--success-light)";
+          phoneBox.style.color = "var(--success)";
+          phoneBox.style.borderColor = "var(--success-border)";
+          const clean = donor.phone.startsWith("0") ? donor.phone.substring(1) : donor.phone;
+          actionsBox.innerHTML = '<a href="tel:' + donor.phone + '" class="btn-call-now">📞 اتصال مباشر</a>' +
+            '<a href="https://wa.me/218' + clean + '" target="_blank" class="btn-wa-now">💬 واتساب</a>';
+        }
+      }
+      window.closePledge();
+    };
+
+    window.toggleTheme = function() {
+      const htmlEl = document.documentElement;
+      const next = htmlEl.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      htmlEl.setAttribute("data-theme", next);
+      document.getElementById("themeToggleBtn").textContent = next === "dark" ? "☀️ الوضع النهاري" : "🌙 الوضع الليلي";
+    };
+
+    // ================= خدمات الإدارة المؤمنة بالسيرفر =================
+    window.printOfficialRoster = function() {
+      const list = getDonors();
+      const tbody = document.getElementById("printTableBody");
+      document.getElementById("printTimestampMeta").textContent = "تاريخ استخراج الكشف: " + new Date().toLocaleString("ar-LY") + " | إجمالي المسجلين: " + list.length;
+      tbody.innerHTML = list.map((d, idx) =>
+        '<tr>' +
+          '<td>' + (idx + 1) + '</td>' +
+          '<td style="font-weight:bold;">' + d.code + '</td>' +
+          '<td style="font-weight:bold; direction:ltr;">' + d.blood + '</td>' +
+          '<td>' + d.city + '</td>' +
+          '<td style="direction:ltr; font-weight:bold;">' + d.phone + '</td>' +
+          '<td>' + formatTimeLabel(d.preferredTime) + '</td>' +
+          '<td>' + (d.isVerified ? "مفعل (موثق)" : "غير مفعل") + '</td>' +
+        '</tr>'
+      ).join("");
+      window.print();
+    };
+
+    window.exportCSV = function() {
+      const list = getDonors();
+      let csvContent = "\uFEFFالكود,الفصيلة,المدينة,رقم الهاتف,وقت التواصل,التفعيل\r\n";
+      list.forEach(d => {
+        const row = [
+          d.code,
+          d.blood,
+          d.city,
+          d.phone,
+          d.preferredTime,
+          d.isVerified ? "مفعل" : "غير مفعل"
+        ].map(v => '"' + String(v).replace(/"/g, '""') + '"').join(",");
+        csvContent += row + "\r\n";
+      });
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "wareed_donors.csv";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    };
+
+    window.openAdmin = function() {
+      document.getElementById("adminLoginView").style.display = "block";
+      document.getElementById("adminDashboardView").style.display = "none";
+      document.getElementById("adminPassInput").value = "";
+      document.getElementById("adminModal").style.display = "flex";
+    };
+
+    window.closeAdmin = function() {
+      document.getElementById("adminModal").style.display = "none";
+    };
+
+    window.verifyAdmin = async function() {
+      const pass = document.getElementById("adminPassInput").value.trim();
+      if (!pass) {
+        alert("يرجى إدخال الرمز السري للإدارة.");
+        return;
+      }
+      try {
+        const res = await fetch('/api/donors', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'admin_login', password: pass })
+        });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          adminSessionToken = data.token;
+          sessionStorage.setItem("wareed_admin_token", adminSessionToken);
+          document.getElementById("adminLoginView").style.display = "none";
+          document.getElementById("adminDashboardView").style.display = "block";
+
+          const sos = getSosConfig();
+          document.getElementById("admSosVisible").checked = sos.visible !== false;
+          document.getElementById("admSosText").value = sos.text || "";
+          document.getElementById("admSosBlood").value = sos.blood || "";
+
+          const banks = getBanks();
+          document.getElementById("admGlobalShowStock").checked = banks.some(b => b.show_stock !== false);
+
+          document.getElementById("admContactPhone").value = getAdminContactPhone();
+          window.adminPopulateBankSelect();
+          window.renderAdminDonors();
         } else {
-          const errText = await res.text().catch(() => '');
-          alert('تعذر الحفظ في قاعدة البيانات السحابية: ' + (errText || res.statusText));
+          alert(data.message || "خطأ: الرمز السري غير صحيح!");
         }
       } catch (err) {
-        console.error('Save error:', err);
-        alert('حدث خطأ أثناء الاتصال بالسيرفر، تأكد من اتصال الإنترنت.');
-      } finally {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
+        alert("تعذر الاتصال بالسيرفر للتحقق من الرمز السري.");
       }
-    }
+    };
 
-    function loadProductToEdit(id) {
-    const item = products.find(p => String(p.id) === String(id));
-    if (!item) {
-        alert('تعذر العثور على القطعة!');
+    window.adminSaveSos = function(showAlert) {
+      const cfg = {
+        visible: document.getElementById("admSosVisible").checked,
+        text: document.getElementById("admSosText").value.trim(),
+        blood: document.getElementById("admSosBlood").value
+      };
+      saveSosConfig(cfg);
+      if (showAlert) alert("تم تحديث شريط الطوارئ بنجاح!");
+    };
+
+    window.loadCsvFileToText = function(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById("bulkPasteArea").value = e.target.result;
+      };
+      reader.readAsText(file);
+    };
+
+    window.processBulkImport = async function() {
+      const rawText = document.getElementById("bulkPasteArea").value.trim();
+      if (!rawText) {
+        alert("يرجى لصق البيانات أو اختيار ملف أولاً.");
         return;
-    }
+      }
+      const defaultCity = document.getElementById("bulkDefaultCity").value;
+      const arDigits = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+      const normalizedText = rawText.replace(/[٠-٩]/g, d => arDigits.indexOf(d));
 
-    document.getElementById('editId').value = item.id;
-    document.getElementById('pName').value = item.name || '';
-    document.getElementById('pPrice').value = item.price || '';
-    document.getElementById('pCategory').value = item.category || 'هوديز';
-    document.getElementById('pImage').value = item.image_url || '';
-    document.getElementById('pColors').value = item.colors || '';
-    document.getElementById('pSizes').value = item.sizes || '';
-    document.getElementById('pDiscount').checked = Boolean(item.is_discount);
-    document.getElementById('pOldPrice').value = item.old_price || '';
-    document.getElementById('pSoldOut').checked = Boolean(item.is_sold_out);
+      const lines = normalizedText.split(/\r?\n/);
+      const citiesList = ["الزاوية", "صرمان", "صبراتة", "زوارة", "طرابلس", "غريان", "مصراتة", "بنغازي", "سبها"];
+      const records = [];
 
-    toggleOldPriceInput();
-    document.getElementById('formHeaderTitle').textContent = '✏️ تعديل القطعة أو الحذاء';
-    document.getElementById('cancelEditBtn').style.display = 'inline';
-    document.getElementById('submitProductBtn').textContent = 'حفظ التعديلات سحابياً ✓';
+      lines.forEach(line => {
+        if (!line.trim()) return;
+        const phoneMatch = line.match(/(?:09|9)\d{8}/);
+        if (!phoneMatch) return;
+        let phone = phoneMatch[0];
+        if (phone.length === 9 && phone.startsWith("9")) phone = "0" + phone;
 
-    // سحب الشاشة للأعلى تلقائياً لمكان التعديل
-    const modal = document.getElementById('adminModal');
-    if (modal) modal.scrollTo({ top: 0, behavior: 'smooth' });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+        const bloodMatch = line.toUpperCase().match(/(?:AB|A|B|O)[+-]/);
+        const blood = bloodMatch ? bloodMatch[0] : "O+";
 
-    function resetProductForm() {
-      document.getElementById('productForm').reset();
-      document.getElementById('editId').value = '';
-      toggleOldPriceInput();
-      document.getElementById('formHeaderTitle').textContent = '+ إضافة قطعة جديدة';
-      document.getElementById('cancelEditBtn').style.display = 'none';
-      document.getElementById('submitProductBtn').textContent = 'حفظ ونشر في المتجر';
-    }
+        let detectedCity = defaultCity;
+        for (let i = 0; i < citiesList.length; i++) {
+          if (line.includes(citiesList[i])) {
+            detectedCity = citiesList[i];
+            break;
+          }
+        }
+        records.push({ phone, blood, city: detectedCity });
+      });
 
-    async function toggleSoldOutStatus(id) {
-      const item = products.find(p => String(p.id) === String(id));
-            if (!item) return;
-
-      const newStatus = !item.is_sold_out;
-      item.is_sold_out = newStatus;
-      saveLocalAndRefresh();
-      showToast(newStatus ? 'تم وضع علامة: نفدت الكمية' : 'تمت إعادة توفير القطعة ✓');
+      if (records.length === 0) {
+        alert("لم يتم العثور على أرقام هواتف ليبية صالحة في النص الملصق.");
+        return;
+      }
 
       try {
-        await fetch('/api/products', {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
-          body: JSON.stringify({
-            action: 'toggle_sold_out',
-            id: item.id,
-            is_sold_out: newStatus,
-            admin_pin: ADMIN_PIN,
-            pin: ADMIN_PIN
-          })
+        const res = await fetch('/api/donors', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-admin-secret': adminSessionToken
+          },
+          body: JSON.stringify({ action: 'bulk_import', records })
         });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          document.getElementById("bulkPasteArea").value = "";
+          await window.syncDonorsFromServer();
+          alert("تم الاستيراد لقاعدة البيانات بنجاح! تمت إضافة وتفعيل: " + data.addedCount + " متبرع. (تم تخطي المكرر: " + data.skippedCount + ")");
+        } else {
+          alert(data.message || "حدث خطأ أثناء الاستيراد.");
+        }
       } catch (err) {
-        console.error(err);
+        alert("تعذر الاتصال بالسيرفر لإتمام الاستيراد.");
       }
-    }
+    };
 
-    async function toggleSingleDiscount(id) {
-      const item = products.find(p => String(p.id) === String(id));
-            if (!item) return;
+    window.toggleGlobalStockMode = function(show) {
+      let banks = getBanks();
+      banks.forEach(b => b.show_stock = show);
+      saveBanks(banks);
+      const currentSelected = document.getElementById("adminSelectBankToEdit").value;
+      if (currentSelected) window.adminLoadBankForm(currentSelected);
+    };
 
-      const nextState = !item.is_discount;
-      let oldPrice = item.old_price;
+    window.adminPopulateBankSelect = function() {
+      const select = document.getElementById("adminSelectBankToEdit");
+      const banks = getBanks();
+      select.innerHTML = '<option value="">-- اختر مصرف دم أو مستشفى للتعديل --</option>' +
+        banks.map(b => '<option value="' + b.id + '">[' + b.city + '] ' + b.name + '</option>').join("");
+      document.getElementById("adminBankEditFields").style.display = "none";
+    };
 
-      if (nextState && (!oldPrice || Number(oldPrice) <= Number(item.price))) {
-        const suggested = Math.round(Number(item.price) * 1.25);
-        const ask = prompt('أدخل السعر السابق (المشطوب):', suggested);
-        if (ask === null) return;
-        oldPrice = Number(ask) || suggested;
+    window.adminLoadBankForm = function(bankId) {
+      if (!bankId) {
+        document.getElementById("adminBankEditFields").style.display = "none";
+        return;
+      }
+      const bank = getBanks().find(b => b.id === bankId);
+      if (!bank) return;
+
+      document.getElementById("adminBankEditFields").style.display = "block";
+      document.getElementById("editBPhone").value = bank.phone || "";
+      document.getElementById("editBUpdatedBy").value = bank.updated_by || "أخصائي مصرف الدم";
+      document.getElementById("editBShowStock").value = (bank.show_stock !== false) ? "true" : "false";
+
+      const matrixBox = document.getElementById("adminStockMatrixInputs");
+      matrixBox.innerHTML = BLOOD_TYPES.map(type => {
+        const current = (bank.stock && bank.stock[type]) ? bank.stock[type] : "high";
+        return '<div style="background:var(--bg-card); padding:5px; border-radius:6px; border:1px solid var(--border-color); text-align:center;">' +
+          '<div style="font-weight:900; font-size:12px; direction:ltr;">' + type + '</div>' +
+          '<select id="adm_stk_' + type + '" style="padding:3px; font-size:10.5px; margin-top:2px;">' +
+            '<option value="high" ' + (current === 'high' ? 'selected' : '') + '>🟢 متوفر</option>' +
+            '<option value="low" ' + (current === 'low' ? 'selected' : '') + '>🟠 محدود</option>' +
+            '<option value="crit" ' + (current === 'crit' ? 'selected' : '') + '>🔴 نقص حاد</option>' +
+          '</select>' +
+        '</div>';
+      }).join("");
+    };
+
+    window.adminSaveBankStock = function() {
+      const bankId = document.getElementById("adminSelectBankToEdit").value;
+      let banks = getBanks();
+      const bank = banks.find(b => b.id === bankId);
+      if (!bank) return;
+
+      bank.phone = document.getElementById("editBPhone").value.trim();
+      bank.updated_by = document.getElementById("editBUpdatedBy").value.trim() || "أخصائي مصرف الدم";
+      bank.show_stock = document.getElementById("editBShowStock").value === "true";
+
+      const now = new Date();
+      bank.last_updated = now.toISOString().split("T")[0] + " " + now.toTimeString().split(" ")[0].substring(0, 5);
+
+      bank.stock = bank.stock || {};
+      BLOOD_TYPES.forEach(type => {
+        const el = document.getElementById("adm_stk_" + type);
+        bank.stock[type] = el ? el.value : "high";
+      });
+
+      saveBanks(banks);
+      alert("تم حفظ التعديلات وتحديث التاريخ بنجاح!");
+    };
+
+    window.adminDeleteBank = function() {
+      const bankId = document.getElementById("adminSelectBankToEdit").value;
+      if (!bankId) return;
+      if (confirm("هل أنت متأكد من حذف هذا المصرف؟")) {
+        let banks = getBanks().filter(b => b.id !== bankId);
+        saveBanks(banks);
+        window.adminPopulateBankSelect();
+      }
+    };
+
+    window.adminAddBank = function() {
+      const name = document.getElementById("newBankName").value.trim();
+      const city = document.getElementById("newBankCity").value;
+      const location = document.getElementById("newBankLocation").value.trim();
+      const phone = document.getElementById("newBankPhone").value.trim();
+      const mapQuery = document.getElementById("newBankMapQuery").value.trim();
+      const fb = document.getElementById("newBankFb").value.trim();
+
+      if (!name) {
+        alert("يرجى كتابة اسم المستشفى أو المصرف.");
+        return;
       }
 
-      item.is_discount = nextState;
-      item.old_price = oldPrice;
-      saveLocalAndRefresh();
-      showToast(nextState ? 'تم تفعيل التخفيض ⚡' : 'تم إخفاء التخفيض');
+      const now = new Date();
+      const newB = {
+        id: "bank_" + Date.now(),
+        city: city,
+        name: name,
+        location: location || (city + " - المركز الصحي"),
+        map_query: mapQuery || (name + " " + city + " Libya"),
+        phone: phone || "",
+        fb_url: fb || "",
+        show_stock: document.getElementById("admGlobalShowStock").checked,
+        last_updated: now.toISOString().split("T")[0] + " " + now.toTimeString().split(" ")[0].substring(0, 5),
+        updated_by: "الإدارة",
+        stock: {"O+": "high", "O-": "low", "A+": "high", "A-": "low", "B+": "high", "B-": "low", "AB+": "high", "AB-": "low"}
+      };
 
+      let banks = getBanks();
+      banks.unshift(newB);
+      saveBanks(banks);
+
+      document.getElementById("newBankName").value = "";
+      document.getElementById("newBankLocation").value = "";
+      document.getElementById("newBankPhone").value = "";
+      document.getElementById("newBankMapQuery").value = "";
+      document.getElementById("newBankFb").value = "";
+
+      window.adminPopulateBankSelect();
+      alert("تمت إضافة المصرف بنجاح!");
+    };
+
+    window.renderAdminDonors = function() {
+      const box = document.getElementById("adminDonorsWrapper");
+      const list = getDonors();
+      if (list.length === 0) {
+        box.innerHTML = "<p style='font-size:12px; color:var(--text-muted);'>لا يوجد متبرعون مسجلون في قاعدة البيانات حالياً.</p>";
+        return;
+      }
+      box.innerHTML = list.map(d =>
+        '<div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:8px; border-radius:6px; border:1px solid var(--border-color); margin-bottom:5px; font-size:12px; flex-wrap:wrap; gap:6px;">' +
+          '<div>' +
+            '<strong>#' + d.code + '</strong> (<span dir="ltr" style="color:var(--primary); font-weight:bold;">' + d.blood + '</span>) - ' + d.city + ' - 📞 ' + d.phone + ' ' +
+            '<span style="color:' + (d.isVerified ? 'var(--success)' : 'var(--warning)') + '; font-weight:bold;">[' + (d.isVerified ? '✔ مفعل' : '⏳ غير مفعل') + ']</span>' +
+          '</div>' +
+          '<div style="display:flex; gap:4px;">' +
+            '<button type="button" onclick="window.adminToggleV(\'' + d.id + '\')" style="background:' + (d.isVerified ? '#64748b' : '#15803d') + '; color:white; border:none; padding:4px 8px; border-radius:4px; font-size:11px; cursor:pointer;">' +
+              (d.isVerified ? 'إلغاء التفعيل' : '✔ تفعيل') +
+            '</button>' +
+            '<button type="button" onclick="window.adminDelD(\'' + d.id + '\')" style="background:#dc2626; color:white; border:none; padding:4px 8px; border-radius:4px; font-size:11px; cursor:pointer;">' +
+              'حذف' +
+            '</button>' +
+          '</div>' +
+        '</div>'
+      ).join("");
+    };
+
+    window.adminToggleV = async function(id) {
+      let list = getDonors();
+      const d = list.find(x => x.id === id);
+      if (!d) return;
+      const nextState = !d.isVerified;
       try {
-        await fetch('/api/products', {
+        const res = await fetch('/api/donors', {
           method: 'PUT',
-          headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
-          body: JSON.stringify({
-            action: 'toggle_discount',
-            id: item.id,
-            price: item.price,
-            old_price: item.old_price,
-            is_discount: item.is_discount,
-            admin_pin: ADMIN_PIN,
-            pin: ADMIN_PIN
-          })
+          headers: {
+            'Content-Type': 'application/json',
+            'x-admin-secret': adminSessionToken
+          },
+          body: JSON.stringify({ id, isVerified: nextState })
         });
+        if (res.ok) {
+          d.isVerified = nextState;
+          saveDonors(list);
+          window.renderAdminDonors();
+        } else {
+          alert("تعذر تحديث حالة المتبرع في قاعدة البيانات.");
+        }
       } catch (err) {
-        console.error(err);
+        alert("خطأ في الاتصال بالسيرفر.");
       }
-    }
+    };
 
-    async function clearAllDiscounts() {
-      if (!confirm('هل تريد إلغاء جميع التخفيضات من المتجر بالكامل؟')) return;
-      products = products.map(p => ({ ...p, is_discount: false }));
-      saveLocalAndRefresh();
-      showToast('تم إلغاء جميع التخفيضات بنجاح ✓');
-
+    window.adminDelD = async function(id) {
+      if (!confirm("حذف هذا المتبرع نهائياً من قاعدة البيانات؟")) return;
       try {
-        await fetch('/api/products', {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json', 'x-admin-pin': ADMIN_PIN },
-          body: JSON.stringify({
-            action: 'disable_all_discounts',
-            admin_pin: ADMIN_PIN,
-            pin: ADMIN_PIN
-          })
-        });
-      } catch (err) {
-        console.error(err);
-      }
-    }
-
-    async function removeProduct(id) {
-      if (!confirm('هل أنت متأكد من حذف هذه القطعة نهائياً؟')) return;
-      products = products.filter(p => p.id !== id);
-      saveLocalAndRefresh();
-      showToast('تم حذف القطعة');
-
-      try {
-        await fetch(`/api/products?id=${id}&admin_pin=${ADMIN_PIN}`, {
+        const res = await fetch('/api/donors', {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
-            'x-admin-pin': ADMIN_PIN
+            'x-admin-secret': adminSessionToken
           },
-          body: JSON.stringify({ id, admin_pin: ADMIN_PIN, pin: ADMIN_PIN })
+          body: JSON.stringify({ id })
         });
+        if (res.ok) {
+          let list = getDonors().filter(x => x.id !== id);
+          saveDonors(list);
+          window.renderAdminDonors();
+        } else {
+          alert("تعذر حذف المتبرع من قاعدة البيانات.");
+        }
       } catch (err) {
-        console.error(err);
+        alert("خطأ في الاتصال بالسيرفر.");
       }
-    }
+    };
 
-    function renderAdminItems() {
-      const list = document.getElementById('adminItemsList');
-      document.getElementById('adminCount').textContent = products.length;
+    window.exportBackup = function() {
+      const data = { donors: getDonors(), banks: getBanks(), sos: getSosConfig() };
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, 2));
+      const a = document.createElement("a");
+      a.href = dataStr;
+      a.download = "wareed_backup.json";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    };
 
-      list.innerHTML = products.map(item => `
-        <div class="admin-item">
-          <div class="admin-item-info">
-            <img class="admin-thumb" src="${safeAttr(item.image_url)}" alt="" />
-            <div style="min-width:0;">
-              <div class="admin-item-title">${safeAttr(item.name)}</div>
-              <div class="admin-item-meta">
-                <span style="color:var(--yellow-primary); font-weight:800;">${item.price} د.ل</span>
-                <span>• ${safeAttr(item.category)}</span>
-                ${item.sizes ? `<span>• [${safeAttr(item.sizes)}]</span>` : ''}
-              </div>
-            </div>
-          </div>
-          <div class="admin-item-controls">
-            <button
-              class="chip-btn ${item.is_sold_out ? 'active-soldout' : ''}"
-              onclick="toggleSoldOutStatus(${item.id})"
-            >
-              ${item.is_sold_out ? 'نفدت الكمية 🚫' : 'متوفر ✓'}
-            </button>
-            <button
-              class="chip-btn ${item.is_discount ? 'active-discount' : ''}"
-              onclick="toggleSingleDiscount(${item.id})"
-            >
-              ${item.is_discount ? 'خصم مفعل ⚡' : 'تفعيل خصم'}
-            </button>
-            <button class="chip-btn" onclick="loadProductToEdit(${item.id})">تعديل</button>
-            <button class="chip-btn delete" onclick="removeProduct(${item.id})">حذف</button>
-          </div>
-        </div>
-      `).join('');
-    }
+    window.importBackup = function(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (imported.donors) saveDonors(imported.donors);
+          if (imported.banks) saveBanks(imported.banks);
+          if (imported.sos) saveSosConfig(imported.sos);
+          window.renderAdminDonors();
+          alert("تم استرجاع النسخة الاحتياطية بنجاح!");
+        } catch (err) { alert("ملف غير صالح!"); }
+      };
+      reader.readAsText(file);
+    };
 
-    function showToast(text) {
-      const t = document.getElementById('toast');
-      t.textContent = text;
-      t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 2800);
-    }
-
-    function safeAttr(str) {
-      if (!str) return '';
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
-    }
-
-    initStore();
+    (function init() {
+      window.renderSosBanner();
+      window.renderDonors();
+      window.renderPublicBanks();
+      window.checkCompatibility("O+");
+      window.syncDonorsFromServer();
+    })();
   </script>
 </body>
 </html>
